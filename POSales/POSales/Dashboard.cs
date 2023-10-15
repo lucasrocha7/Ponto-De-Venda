@@ -15,11 +15,11 @@ namespace POSales
     {
         SqlConnection cn = new SqlConnection();        
         DBConnect dbcon = new DBConnect();
-
+        
         public Dashboard()
         {
             InitializeComponent();
-            cn = new SqlConnection(dbcon.myConnection());
+            cn = new SqlConnection(dbcon.myConnection());           
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -31,5 +31,16 @@ namespace POSales
             lblCriticalItems.Text = dbcon.ExtractData("SELECT COUNT(*) FROM vwCriticalItems").ToString("#,##0"); 
         }
 
+        private void panel6_MouseClick(object sender, MouseEventArgs e)
+        {
+            Record record = new Record();
+            record.ShowDialog ();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Record record = new Record();
+            record.ShowDialog();
+        }
     }
 }

@@ -153,7 +153,7 @@ namespace POSales
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 43);
+            this.label1.Size = new System.Drawing.Size(183, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gerenciar Produto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,9 +209,9 @@ namespace POSales
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "Reordenar";
+            this.Column8.HeaderText = "Estoque Mínimo";
             this.Column8.Name = "Column8";
-            this.Column8.Width = 110;
+            this.Column8.Width = 147;
             // 
             // Edit
             // 
@@ -241,7 +241,7 @@ namespace POSales
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Product";
-            this.Text = "PRODUCT";
+            this.Text = "PRODUTO";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

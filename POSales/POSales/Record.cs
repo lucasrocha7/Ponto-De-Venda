@@ -32,11 +32,11 @@ namespace POSales
             cn.Open();
 
             //Sort By Total Amount
-            if (cbTopSell.Text == "Sort By Qty")
+            if (cbTopSell.Text == "Classificar por quantidade")
             {
                 cm = new SqlCommand("SELECT TOP 10 pcode, pdesc, isnull(sum(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwTopSelling WHERE sdate BETWEEN '" + dtFromTopSell.Value.ToString() + "' AND '" + dtToTopSell.Value.ToString() + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
             }
-            else if (cbTopSell.Text == "Sort By Total Amount")
+            else if (cbTopSell.Text == "Classificar por valor total")
             {
                 cm = new SqlCommand("SELECT TOP 10 pcode, pdesc, isnull(sum(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwTopSelling WHERE sdate BETWEEN '" + dtFromTopSell.Value.ToString() + "' AND '" + dtToTopSell.Value.ToString() + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", cn);
             }
@@ -164,9 +164,9 @@ namespace POSales
 
         private void btnLoadTopSell_Click(object sender, EventArgs e)
         {
-            if(cbTopSell.Text== "Select sort type")
+            if(cbTopSell.Text== "Selecione o tipo de classificação")
             {
-                MessageBox.Show("Please select sort type from the dropdown list.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o tipo de classificação na lista suspensa.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbTopSell.Focus();
                 return;
             }
@@ -232,6 +232,36 @@ namespace POSales
             string param = "From : " + dtFromStockIn.Value.ToString() + " To : " + dtToStockIn.Value.ToString();
             report.LoadStockInHist("SELECT * FROM vwStockIn WHERE cast(sdate AS date) BETWEEN '" + dtFromStockIn.Value.ToString() + "' AND '" + dtToStockIn.Value.ToString() + "' AND status LIKE 'Done'", param);
             report.ShowDialog();
+        }
+
+        private void dgvCriticalItems_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach(DataGridViewRow row in dgvCriticalItems.Rows)
+            {
+                int MinEstoque = Convert.ToInt32(row.Cells[7].Value);
+                int DispEstoque = Convert.ToInt32(row.Cells[8].Value);
+
+                if(MinEstoque >= DispEstoque)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Green;
+                }
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

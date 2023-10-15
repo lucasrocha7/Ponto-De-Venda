@@ -102,7 +102,7 @@ namespace POSales
             {
                 if (dgvStockIn.Rows.Count > 0)
                 {
-                    if (MessageBox.Show("Are you sure you want to save this records?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Tem certeza de que deseja salvar esses registros?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         for(int i=0; i<dgvStockIn.Rows.Count;i++)
                         {
@@ -143,13 +143,13 @@ namespace POSales
             string colName = dgvStockIn.Columns[e.ColumnIndex].Name;
             if (colName == "Delete")
             {
-                if (MessageBox.Show("Remove this item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Remover este item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     cm = new SqlCommand("DELETE FROM tbStockIn WHERE id='" + dgvStockIn.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Item has been successfully removed", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O item foi removido com sucesso", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadStockIn();
                 }
             }

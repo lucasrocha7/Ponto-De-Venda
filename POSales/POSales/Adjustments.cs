@@ -86,21 +86,21 @@ namespace POSales
                 //validation for empty field
                 if(cbAction.Text=="")
                 {
-                    MessageBox.Show("Please select action for add or reduce.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione a ação para adicionar ou reduzir.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cbAction.Focus();
                     return;
                 }
 
                 if(txtQty.Text=="")
                 {
-                    MessageBox.Show("Please input quantity  for add or reduce.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Insira a quantidade para adicionar ou reduzir.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtQty.Focus();
                     return;
                 }
 
                 if(txtRemark.Text=="")
                 {
-                    MessageBox.Show("Need reason for stock adjustment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Precisa de motivo para ajuste de estoque.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtRemark.Focus();
                     return;
                 }
@@ -108,20 +108,20 @@ namespace POSales
                 //update stock
                 if(int.Parse(txtQty.Text)>_qty)
                 {
-                    MessageBox.Show("Stock on hand quantity should be greater than adjustment quantity.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A quantidade em estoque deve ser maior que a quantidade de ajuste.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if(cbAction.Text=="Remove From Inventory")
+                if(cbAction.Text== "Remover do inventário")
                 {
                     dbcon.ExecuteQuery("UPDATE tbProduct SET qty = (qty - " + int.Parse(txtQty.Text) + ") WHERE pcode LIKE '" + lblPcode.Text + "'");
                 }
-                else if(cbAction.Text=="Add To Inventory")
+                else if(cbAction.Text== "Adicionar ao inventário")
                 {
                     dbcon.ExecuteQuery("UPDATE tbProduct SET qty = (qty + " + int.Parse(txtQty.Text) + ") WHERE pcode LIKE '" + lblPcode.Text + "'");
                 }
 
                 dbcon.ExecuteQuery("INSERT INTO tbAdjustment(referenceno, pcode, qty, action, remarks, sdate, [user]) VALUES ('"+lblRefNo.Text+ "','" + lblPcode.Text + "','" + int.Parse(txtQty.Text) + "', '" + cbAction.Text + "', '" + txtRemark.Text + "', '" + DateTime.Now.ToShortDateString() + "','" + lblUsername.Text + "')");
-                MessageBox.Show("Stock has been successfully adjusted.", "Process completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("O estoque foi ajustado com sucesso.", "Processo completo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadStock();
                 Clear();
                 btnSave.Enabled = false;

@@ -36,7 +36,7 @@ namespace POSales
         {
             int i = 0;
             dgvProduct.Rows.Clear();
-            cm = new SqlCommand("SELECT pcode, pdesc, qty FROM tbProduct WHERE pdesc LIKE '%" + txtSearch.Text + "%'", cn);
+            cm = new SqlCommand("SELECT pcode, pdesc, qty FROM tbProduct WHERE pdesc LIKE '%" + txtSearch.Text + "%'OR pcode LIKE '%" + txtSearch.Text + "%'",  cn);
             cn.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -55,15 +55,15 @@ namespace POSales
             {
                 if(stockIn.txtStockInBy.Text == string.Empty)
                 {
-                    MessageBox.Show("Please enter stock in by name", stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Por favor insira o estoque por nome", stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     stockIn.txtStockInBy.Focus();
                     this.Dispose();                                        
                 }
 
-                if (MessageBox.Show("Add this item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Adicionar este item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     addStockIn(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    MessageBox.Show("Successfully added", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Adicionado com sucesso", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }

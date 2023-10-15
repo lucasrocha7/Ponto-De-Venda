@@ -153,6 +153,7 @@ namespace POSales
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(227, 114);
             this.panel6.TabIndex = 2;
+            this.panel6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseClick);
             // 
             // lblCriticalItems
             // 
@@ -193,6 +194,7 @@ namespace POSales
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // panel7
             // 
