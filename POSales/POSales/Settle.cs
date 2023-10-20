@@ -92,7 +92,7 @@ namespace POSales
             {
                 if ((double.Parse(txtChange.Text) < 0) || (txtCash.Text.Equals("")))
                 {
-                    MessageBox.Show("Insufficient amount, Please enter the corret amount!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Valor insuficiente. Por favor, insira o valor correto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -113,7 +113,7 @@ namespace POSales
                     recept.LoadRecept(txtCash.Text, txtChange.Text);
                     recept.ShowDialog();
 
-                    MessageBox.Show("Payment successfully saved!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pagamento salvo com sucesso!", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cashier.GetTranNo();
                     cashier.LoadCart();
                     this.Dispose();

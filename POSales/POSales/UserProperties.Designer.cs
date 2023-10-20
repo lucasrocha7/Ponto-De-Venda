@@ -68,9 +68,9 @@ namespace POSales
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(130, 21);
+            this.txtName.Location = new System.Drawing.Point(160, 21);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(342, 26);
+            this.txtName.Size = new System.Drawing.Size(312, 26);
             this.txtName.TabIndex = 4;
             // 
             // cbActivate

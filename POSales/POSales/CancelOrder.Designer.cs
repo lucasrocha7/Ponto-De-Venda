@@ -358,6 +358,7 @@ namespace POSales
             this.udCancelQty.Size = new System.Drawing.Size(316, 26);
             this.udCancelQty.TabIndex = 24;
             this.udCancelQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.udCancelQty.ValueChanged += new System.EventHandler(this.udCancelQty_ValueChanged);
             // 
             // CancelOrder
             // 

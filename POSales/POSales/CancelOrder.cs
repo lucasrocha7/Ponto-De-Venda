@@ -63,5 +63,10 @@ namespace POSales
                 this.Dispose();
             }
         }
+
+        private void udCancelQty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -243,8 +243,8 @@ namespace POSales
 
                 if(MinEstoque >= DispEstoque)
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                    row.DefaultCellStyle.ForeColor = Color.White;
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Red;
                 }
                 else
                 {
@@ -262,6 +262,26 @@ namespace POSales
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvInventoryList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach(DataGridViewRow row in dgvInventoryList.Rows)
+            {
+                int DispEstoque = Convert.ToInt32(row.Cells[7].Value);
+                int MinEstoque = Convert.ToInt32(row.Cells[8].Value);
+
+                if (MinEstoque >= DispEstoque)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
         }
     }
 }

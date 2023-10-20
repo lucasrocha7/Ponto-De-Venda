@@ -29,11 +29,11 @@ namespace POSales
         {
             try
             {
-                if (txtUsername.Text.ToLower() == cancelOrder.txtCancelBy.Text.ToLower())
-                {
-                    MessageBox.Show("Void by name and cancelled by name are same!. Please void by another person.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (txtUsername.Text.ToLower() == cancelOrder.txtCancelBy.Text.ToLower())
+               // {
+                //    MessageBox.Show("\"Anulado por\" e \"cancelado por\" são iguais! Por favor anule por outra pessoa.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+               // }
                 string user;
                 cn.Open();
                 cm = new SqlCommand("Select * From tbUser Where username = @username and password = @password", cn);
@@ -47,12 +47,12 @@ namespace POSales
                     dr.Close();
                     cn.Close();
                     SaveCancelOrder(user);
-                    if(cancelOrder.cboInventory.Text=="Sim")
+                    if (cancelOrder.cboInventory.Text== "Sim")
                     {
-                        dbcon.ExecuteQuery("UPDATE tbProduct SET qty = qty = " + cancelOrder.udCancelQty.Value + " where pcode= '" + cancelOrder.txtPcode.Text + "'");
+                        dbcon.ExecuteQuery("UPDATE tbProduct SET qty = qty + " + cancelOrder.udCancelQty.Value + " where pcode= '" + cancelOrder.txtPcode.Text + "'");
                     }
-                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty + " + cancelOrder.udCancelQty.Value + " where id LIKE '" + cancelOrder.txtId.Text + "'");
-                    MessageBox.Show("Order transaction successfully cancelled!", "Cancel Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty - " + cancelOrder.udCancelQty.Value + " where id LIKE '" + cancelOrder.txtId.Text + "'");
+                    MessageBox.Show("Transação do pedido cancelada com sucesso!", "Cancelar pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
                     cancelOrder.ReloadSoldList();
                     cancelOrder.Dispose();

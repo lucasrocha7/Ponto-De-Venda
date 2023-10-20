@@ -282,7 +282,7 @@ namespace POSales
                 {
                     if (qty < (int.Parse(txtQty.Text) + cart_qty))
                     {
-                        MessageBox.Show("Unable to procced. Remaining quantity on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Não foi possível processar. A quantidade restante disponível é " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     cn.Open();
@@ -297,7 +297,7 @@ namespace POSales
                 {
                     if (qty < (int.Parse(txtQty.Text) + cart_qty))
                     {
-                        MessageBox.Show("Unable to procced. Remaining qty on hand is" + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Não foi possível processar. A quantidade restante disponível é" + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     cn.Open();
@@ -333,10 +333,10 @@ namespace POSales
 
             if (colName == "Delete")
             {
-                if (MessageBox.Show("Remove this item", "Remove item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Remover este item", "Remover item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     dbcon.ExecuteQuery("Delete from tbCart where id like'" + dgvCash.Rows[e.RowIndex].Cells[1].Value.ToString() + "'");
-                    MessageBox.Show("Items has been successfully remove", "Remove item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Os itens foram removidos com sucesso", "Remover item", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadCart();
                 }
             }
@@ -354,7 +354,7 @@ namespace POSales
                 }
                 else
                 {
-                    MessageBox.Show("Remaining qty on hand is " + i + "!", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A quantidade restante disponível é " + i + "!", "Fora de estoque", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -372,7 +372,7 @@ namespace POSales
                 }
                 else
                 {
-                    MessageBox.Show("Remaining qty on cart is " + i + "!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A quantidade restante no carrinho é " + i + "!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }

@@ -131,5 +131,10 @@ namespace POSales
                 MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void cbAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
