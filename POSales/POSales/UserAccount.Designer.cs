@@ -100,7 +100,7 @@ namespace POSales
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 43);
+            this.label1.Size = new System.Drawing.Size(235, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Configuração do usuário";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,7 +112,7 @@ namespace POSales
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(32, 12);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(928, 452);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
@@ -134,7 +134,7 @@ namespace POSales
             this.metroTabPage1.Controls.Add(this.label2);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 2;
+            this.metroTabPage1.HorizontalScrollbarSize = 1;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(920, 410);
@@ -142,7 +142,7 @@ namespace POSales
             this.metroTabPage1.Text = "Criar uma conta";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 2;
+            this.metroTabPage1.VerticalScrollbarSize = 1;
             // 
             // btnAccSave
             // 
@@ -275,7 +275,7 @@ namespace POSales
             this.metroTabPage2.Controls.Add(this.label8);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 2;
+            this.metroTabPage2.HorizontalScrollbarSize = 1;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(920, 410);
@@ -283,7 +283,7 @@ namespace POSales
             this.metroTabPage2.Text = "Alterar a senha";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 2;
+            this.metroTabPage2.VerticalScrollbarSize = 1;
             // 
             // lblUsername
             // 
@@ -291,9 +291,9 @@ namespace POSales
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(176, 73);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(82, 18);
+            this.lblUsername.Size = new System.Drawing.Size(134, 18);
             this.lblUsername.TabIndex = 36;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Nome de usuário";
             // 
             // pictureBox1
             // 
@@ -315,7 +315,7 @@ namespace POSales
             this.btnPassSave.Name = "btnPassSave";
             this.btnPassSave.Size = new System.Drawing.Size(94, 35);
             this.btnPassSave.TabIndex = 33;
-            this.btnPassSave.Text = "Save";
+            this.btnPassSave.Text = "Salvar";
             this.btnPassSave.UseVisualStyleBackColor = false;
             this.btnPassSave.Click += new System.EventHandler(this.btnPassSave_Click);
             // 
@@ -330,15 +330,15 @@ namespace POSales
             this.btnPassCancel.Name = "btnPassCancel";
             this.btnPassCancel.Size = new System.Drawing.Size(94, 35);
             this.btnPassCancel.TabIndex = 34;
-            this.btnPassCancel.Text = "Cancel";
+            this.btnPassCancel.Text = "Cancelar";
             this.btnPassCancel.UseVisualStyleBackColor = false;
             this.btnPassCancel.Click += new System.EventHandler(this.btnPassCancel_Click);
             // 
             // txtRePass2
             // 
-            this.txtRePass2.Location = new System.Drawing.Point(280, 234);
+            this.txtRePass2.Location = new System.Drawing.Point(374, 234);
             this.txtRePass2.Name = "txtRePass2";
-            this.txtRePass2.Size = new System.Drawing.Size(527, 26);
+            this.txtRePass2.Size = new System.Drawing.Size(433, 26);
             this.txtRePass2.TabIndex = 11;
             this.txtRePass2.UseSystemPasswordChar = true;
             // 
@@ -347,9 +347,9 @@ namespace POSales
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(110, 237);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 20);
+            this.label10.Size = new System.Drawing.Size(211, 20);
             this.label10.TabIndex = 10;
-            this.label10.Text = "Re-type Password :";
+            this.label10.Text = "Digite novamente a senha :";
             // 
             // txtNPass
             // 
@@ -364,9 +364,9 @@ namespace POSales
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(110, 179);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 20);
+            this.label9.Size = new System.Drawing.Size(111, 20);
             this.label9.TabIndex = 8;
-            this.label9.Text = "New Password :";
+            this.label9.Text = "Nova Senha : ";
             // 
             // txtCurPass
             // 
@@ -381,9 +381,9 @@ namespace POSales
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(110, 124);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 20);
+            this.label8.Size = new System.Drawing.Size(107, 20);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Current Password :";
+            this.label8.Text = "Senha atual : ";
             // 
             // metroTabPage3
             // 
@@ -393,7 +393,7 @@ namespace POSales
             this.metroTabPage3.Controls.Add(this.dgvUser);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 2;
+            this.metroTabPage3.HorizontalScrollbarSize = 1;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(920, 410);
@@ -401,7 +401,7 @@ namespace POSales
             this.metroTabPage3.Text = "Ativar / Desativar conta";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 2;
+            this.metroTabPage3.VerticalScrollbarSize = 1;
             // 
             // gbUser
             // 
@@ -414,7 +414,7 @@ namespace POSales
             this.gbUser.Size = new System.Drawing.Size(890, 100);
             this.gbUser.TabIndex = 23;
             this.gbUser.TabStop = false;
-            this.gbUser.Text = "Password For UserName";
+            this.gbUser.Text = "Senha para nome de usuário";
             // 
             // pictureBox2
             // 
@@ -430,9 +430,9 @@ namespace POSales
             this.lblAccNote.AutoSize = true;
             this.lblAccNote.Location = new System.Drawing.Point(103, 27);
             this.lblAccNote.Name = "lblAccNote";
-            this.lblAccNote.Size = new System.Drawing.Size(453, 20);
+            this.lblAccNote.Size = new System.Drawing.Size(507, 20);
             this.lblAccNote.TabIndex = 0;
-            this.lblAccNote.Text = "To change the password for username, click Reset Password.";
+            this.lblAccNote.Text = "Para alterar a senha do nome de usuário, clique em Redefinir senha.";
             // 
             // btnResetPass
             // 
@@ -444,7 +444,7 @@ namespace POSales
             this.btnResetPass.Name = "btnResetPass";
             this.btnResetPass.Size = new System.Drawing.Size(222, 35);
             this.btnResetPass.TabIndex = 22;
-            this.btnResetPass.Text = "Reset Password...";
+            this.btnResetPass.Text = "Redefinir senha...";
             this.btnResetPass.UseVisualStyleBackColor = false;
             this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
             // 
@@ -458,7 +458,7 @@ namespace POSales
             this.btnProperties.Name = "btnProperties";
             this.btnProperties.Size = new System.Drawing.Size(111, 35);
             this.btnProperties.TabIndex = 22;
-            this.btnProperties.Text = "Properties";
+            this.btnProperties.Text = "Propriedades";
             this.btnProperties.UseVisualStyleBackColor = false;
             this.btnProperties.Click += new System.EventHandler(this.btnProperties_Click);
             // 
@@ -472,7 +472,7 @@ namespace POSales
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(111, 35);
             this.btnRemove.TabIndex = 22;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "Remover";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 

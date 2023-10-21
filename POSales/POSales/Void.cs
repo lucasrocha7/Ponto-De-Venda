@@ -51,6 +51,16 @@ namespace POSales
                     {
                         dbcon.ExecuteQuery("UPDATE tbProduct SET qty = qty + " + cancelOrder.udCancelQty.Value + " where pcode= '" + cancelOrder.txtPcode.Text + "'");
                     }
+                    
+                    if (Convert.ToDecimal(cancelOrder.txtQty.Text) == cancelOrder.udCancelQty.Value)
+                    {
+                        dbcon.ExecuteQuery("DELETE FROM tbCart WHERE qty = "+ cancelOrder.udCancelQty.Value + " AND id = '" + cancelOrder.txtId.Text + "'");
+                        MessageBox.Show("Transação do pedido cancelada com sucesso!", "Cancelar pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Dispose();
+                        cancelOrder.ReloadSoldList();
+                        cancelOrder.Dispose();
+                    }
+                    else
                     dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty - " + cancelOrder.udCancelQty.Value + " where id LIKE '" + cancelOrder.txtId.Text + "'");
                     MessageBox.Show("Transação do pedido cancelada com sucesso!", "Cancelar pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();

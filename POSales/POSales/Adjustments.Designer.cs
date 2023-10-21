@@ -139,7 +139,7 @@ namespace POSales
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(7, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 43);
+            this.label1.Size = new System.Drawing.Size(190, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ajuste de estoque";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,9 +213,9 @@ namespace POSales
             this.lblDesc.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesc.Location = new System.Drawing.Point(138, 106);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(112, 20);
+            this.lblDesc.Size = new System.Drawing.Size(160, 20);
             this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "Product detail";
+            this.lblDesc.Text = "Detalhes do produto";
             // 
             // lblPcode
             // 
@@ -223,9 +223,9 @@ namespace POSales
             this.lblPcode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPcode.Location = new System.Drawing.Point(392, 66);
             this.lblPcode.Name = "lblPcode";
-            this.lblPcode.Size = new System.Drawing.Size(111, 20);
+            this.lblPcode.Size = new System.Drawing.Size(151, 20);
             this.lblPcode.TabIndex = 2;
-            this.lblPcode.Text = "Product code";
+            this.lblPcode.Text = "Código do produto";
             // 
             // lblRefNo
             // 

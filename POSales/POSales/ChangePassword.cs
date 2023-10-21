@@ -37,7 +37,7 @@ namespace POSales
                 string oldpass = dbcon.getPassword(lblUsername.Text);
                 if(oldpass != txtPass.Text)
                 {
-                    MessageBox.Show("Wrong password, please try again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Senha errada, tente novamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -63,14 +63,14 @@ namespace POSales
             {
                 if(txtNewPass.Text != txtComPass.Text)
                 {
-                    MessageBox.Show("New password and confirm password did not matched!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A nova senha e a confirmação da senha não correspondem!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    if(MessageBox.Show("Change password?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+                    if(MessageBox.Show("Alterar a senha?", "Confirme", MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
                     {
                         dbcon.ExecuteQuery("UPDATE tbUser set password = '" + txtNewPass.Text + "' WHERE username = '" + lblUsername.Text + "'");
-                        MessageBox.Show("Password has been sucessfully update!", "Save Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("A senha foi atualizada com sucesso!", "Salvar atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
                     }
                 }
