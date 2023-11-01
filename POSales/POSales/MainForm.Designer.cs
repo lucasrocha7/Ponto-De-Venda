@@ -187,7 +187,7 @@ namespace POSales
             this.btnPosRecord.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnPosRecord.Size = new System.Drawing.Size(183, 45);
             this.btnPosRecord.TabIndex = 5;
-            this.btnPosRecord.Text = "Registro ";
+            this.btnPosRecord.Text = "Relatório";
             this.btnPosRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPosRecord.UseVisualStyleBackColor = true;
             this.btnPosRecord.Click += new System.EventHandler(this.btnPosRecord_Click);
@@ -220,7 +220,7 @@ namespace POSales
             this.btnRecord.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRecord.Size = new System.Drawing.Size(183, 45);
             this.btnRecord.TabIndex = 5;
-            this.btnRecord.Text = "Registro";
+            this.btnRecord.Text = "Relatórios";
             this.btnRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecord.UseVisualStyleBackColor = true;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
@@ -236,7 +236,7 @@ namespace POSales
             this.btnSupplier.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSupplier.Size = new System.Drawing.Size(183, 45);
             this.btnSupplier.TabIndex = 4;
-            this.btnSupplier.Text = "Fornecedor";
+            this.btnSupplier.Text = "Fornecedores";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSupplier.UseVisualStyleBackColor = true;
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
@@ -296,7 +296,7 @@ namespace POSales
             this.btnInStock.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnInStock.Size = new System.Drawing.Size(183, 45);
             this.btnInStock.TabIndex = 3;
-            this.btnInStock.Text = "Em estoque";
+            this.btnInStock.Text = "Estoque";
             this.btnInStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInStock.UseVisualStyleBackColor = true;
             this.btnInStock.Click += new System.EventHandler(this.btnInStock_Click);
