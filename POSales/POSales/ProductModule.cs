@@ -67,7 +67,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Are you sure want to save this product?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja salvar este produto?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cm = new SqlCommand("INSERT INTO tbProduct(pcode, barcode, pdesc, bid, cid, price, reorder)VALUES (@pcode,@barcode,@pdesc,@bid,@cid,@price, @reorder)", cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
@@ -80,7 +80,7 @@ namespace POSales
                     cn.Open();
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Product has been successfully saved.", stitle);
+                    MessageBox.Show("O produto foi salvo com sucesso.", stitle);
                     Clear();
                     product.LoadProduct();
                 }
@@ -102,7 +102,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Are you sure want to update this product?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja atualizar este produto?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cm = new SqlCommand("UPDATE tbProduct SET barcode=@barcode,pdesc=@pdesc,bid=@bid,cid=@cid,price=@price, reorder=@reorder WHERE pcode LIKE @pcode", cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
@@ -115,7 +115,7 @@ namespace POSales
                     cn.Open();
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Product has been successfully updated.", stitle);
+                    MessageBox.Show("O produto foi atualizado com sucesso.", stitle);
                     Clear();
                     this.Dispose();
                 }

@@ -17,7 +17,7 @@ namespace POSales
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=DESKTOP-LUCAS\SQLSERVER2019;Initial Catalog=POSales;Integrated Security=True;Connect Timeout=30";
+            con = @"Data Source=mssql-154111-0.cloudclusters.net,19555;Initial Catalog=dbsistemacde;Integrated Security=false; User Id=lucas;Password=Lc!@254434; Connect Timeout=30";
             return con;
         }
 
