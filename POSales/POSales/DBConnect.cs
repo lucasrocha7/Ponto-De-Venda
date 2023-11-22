@@ -17,7 +17,7 @@ namespace POSales
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=dbsistemacde.cprnxujp8hto.sa-east-1.rds.amazonaws.com;Initial Catalog=POSales;Integrated Security=false; User Id=admin;Password=QthIXvtWueq8i9CPDv9y; Connect Timeout=30";
+            con = @"Data Source=;Initial Catalog=POSales;Integrated Security=false; User Id=admin;Password=; Connect Timeout=30";
             return con;
         }
 
