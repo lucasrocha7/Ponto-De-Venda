@@ -17,6 +17,8 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
+
+        double LucroVenda = 0;
         public Record()
         {
             InitializeComponent();
@@ -57,12 +59,12 @@ namespace POSales
                 dgvSoldItems.Rows.Clear();
                 int i = 0;
                 cn.Open();
-                cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price",cn);
+                cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice", cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
-                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                 }
                 dr.Close();
                 cn.Close();
@@ -77,6 +79,28 @@ namespace POSales
 
                 MessageBox.Show(ex.Message);
             }
+
+            foreach (DataGridViewRow row in dgvSoldItems.Rows)
+            {
+                int PQtd = Convert.ToInt32(row.Cells[5].Value);
+                double PrecoCompra = Convert.ToDouble(row.Cells[4].Value);
+                double TotalVenda = Convert.ToDouble(row.Cells[07].Value);
+
+                if (PQtd != 0)
+                {
+                    PrecoCompra = (PrecoCompra * PQtd);
+                    
+                    LucroVenda = (TotalVenda - PrecoCompra);
+                    row.Cells[08].Value = LucroVenda.ToString("#,##0.00");
+      
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
+
         }
 
         public void LoadCriticalItems()
@@ -282,6 +306,11 @@ namespace POSales
                     row.DefaultCellStyle.ForeColor = Color.Black;
                 }
             }
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

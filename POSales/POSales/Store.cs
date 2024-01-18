@@ -58,7 +58,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Save store details?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Salvar detalhes da loja?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     if(havestoreinfo)
                     {
                         dbcon.ExecuteQuery("UPDATE tbStore SET store = '" + txtStName.Text + "', address= '" + txtAddress.Text + "'");
@@ -67,7 +67,7 @@ namespace POSales
                     {
                         dbcon.ExecuteQuery("INSERT INTO tbStore (store,address) VALUES ('" + txtStName.Text + "','" + txtAddress.Text + "')");
                     }
-                MessageBox.Show("Store detail has been successfully saved!", "Save Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Os detalhes da loja foram salvos com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
             catch (Exception ex)

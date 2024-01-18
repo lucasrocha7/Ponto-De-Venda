@@ -46,6 +46,9 @@ namespace POSales
             this.cboCashier = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblLucro = new System.Windows.Forms.Label();
             this.dgvSold = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,9 +56,12 @@ namespace POSales
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -103,9 +109,9 @@ namespace POSales
             this.dtFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtFrom.CustomFormat = "dd/MM/yyyy";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.Location = new System.Drawing.Point(155, 15);
+            this.dtFrom.Location = new System.Drawing.Point(84, 15);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(125, 26);
+            this.dtFrom.Size = new System.Drawing.Size(106, 26);
             this.dtFrom.TabIndex = 10;
             this.dtFrom.ValueChanged += new System.EventHandler(this.dtFrom_ValueChanged);
             // 
@@ -114,7 +120,7 @@ namespace POSales
             this.dtTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtTo.CustomFormat = "dd/MM/yyyy";
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.Location = new System.Drawing.Point(334, 15);
+            this.dtTo.Location = new System.Drawing.Point(235, 15);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(125, 26);
             this.dtTo.TabIndex = 10;
@@ -126,28 +132,28 @@ namespace POSales
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 20);
+            this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Filtrar Por Data: De";
+            this.label2.Text = "Filtrar De:";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 18);
+            this.label3.Location = new System.Drawing.Point(195, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 20);
+            this.label3.Size = new System.Drawing.Size(39, 20);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Para";
+            this.label3.Text = "Até:";
             // 
             // lblTotal
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Navy;
-            this.lblTotal.Location = new System.Drawing.Point(864, 18);
+            this.lblTotal.Location = new System.Drawing.Point(729, 30);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(139, 20);
+            this.lblTotal.Size = new System.Drawing.Size(113, 20);
             this.lblTotal.TabIndex = 12;
             this.lblTotal.Text = "0.00";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -156,7 +162,7 @@ namespace POSales
             // 
             this.cboCashier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboCashier.FormattingEnabled = true;
-            this.cboCashier.Location = new System.Drawing.Point(467, 13);
+            this.cboCashier.Location = new System.Drawing.Point(367, 13);
             this.cboCashier.Name = "cboCashier";
             this.cboCashier.Size = new System.Drawing.Size(163, 28);
             this.cboCashier.TabIndex = 13;
@@ -169,7 +175,7 @@ namespace POSales
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(636, 9);
+            this.btnPrint.Location = new System.Drawing.Point(534, 9);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(42, 36);
             this.btnPrint.TabIndex = 14;
@@ -178,6 +184,9 @@ namespace POSales
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblLucro);
             this.panel2.Controls.Add(this.cboCashier);
             this.panel2.Controls.Add(this.btnPrint);
             this.panel2.Controls.Add(this.dtFrom);
@@ -190,6 +199,38 @@ namespace POSales
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1010, 59);
             this.panel2.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(729, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Total Vendido:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(889, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Lucro Total:";
+            // 
+            // lblLucro
+            // 
+            this.lblLucro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLucro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLucro.ForeColor = System.Drawing.Color.Navy;
+            this.lblLucro.Location = new System.Drawing.Point(889, 30);
+            this.lblLucro.Name = "lblLucro";
+            this.lblLucro.Size = new System.Drawing.Size(91, 20);
+            this.lblLucro.TabIndex = 15;
+            this.lblLucro.Text = "0.00";
+            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dgvSold
             // 
@@ -213,9 +254,12 @@ namespace POSales
             this.Column2,
             this.Column4,
             this.Column7,
+            this.Column10,
             this.Column5,
             this.Column6,
             this.Column8,
+            this.Column11,
+            this.Column12,
             this.Cancel});
             this.dgvSold.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSold.EnableHeadersVisualStyles = false;
@@ -235,25 +279,23 @@ namespace POSales
             // 
             // Column9
             // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column9.HeaderText = "Id";
             this.Column9.Name = "Column9";
             this.Column9.Visible = false;
-            this.Column9.Width = 49;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Column3.HeaderText = "Fatura#";
             this.Column3.Name = "Column3";
             this.Column3.Width = 89;
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "PCódigo";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 96;
             // 
             // Column4
             // 
@@ -263,39 +305,55 @@ namespace POSales
             // 
             // Column7
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "Preço";
             this.Column7.Name = "Column7";
-            this.Column7.Width = 76;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.HeaderText = "Custo";
+            this.Column10.Name = "Column10";
             // 
             // Column5
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column5.HeaderText = "Qtd";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 60;
+            this.Column5.Width = 91;
             // 
             // Column6
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Desconto";
             this.Column6.Name = "Column6";
-            this.Column6.Width = 103;
+            this.Column6.Width = 92;
             // 
             // Column8
             // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column8.HeaderText = "Total";
             this.Column8.Name = "Column8";
-            this.Column8.Width = 65;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Lucro";
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 91;
+            // 
+            // Column12
+            // 
+            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column12.HeaderText = "Forma d/ Pag";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 131;
             // 
             // Cancel
             // 
@@ -346,15 +404,21 @@ namespace POSales
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.DataGridView dgvSold;
         public System.Windows.Forms.DateTimePicker dtFrom;
+        private System.Windows.Forms.Label lblLucro;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Cancel;
     }
 }

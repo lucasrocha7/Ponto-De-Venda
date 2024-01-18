@@ -17,6 +17,7 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();        
         Cashier cashier;
+        string MeioDePagamento = "Nenhum";
         public Settle(Cashier cash)
         {
             InitializeComponent();
@@ -95,17 +96,24 @@ namespace POSales
                     MessageBox.Show("Valor insuficiente. Por favor, insira o valor correto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                if ((double.Parse(txtChange.Text) > 0))
+                {
+                    MessageBox.Show("O Valor ultrapassou o valor da compra. Por favor, insira o valor correto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 else
                 {
                     for(int i=0; i< cashier.dgvCash.Rows.Count; i++ )
                     {
                         cn.Open();
-                        cm = new SqlCommand("UPDATE tbProduct SET qty = qty - " + int.Parse(cashier.dgvCash.Rows[i].Cells[5].Value.ToString()) + "WHERE pcode= '" + cashier.dgvCash.Rows[i].Cells[2].Value.ToString() + "'", cn);
+                        cm = new SqlCommand("UPDATE tbProduct SET qty = qty - " + int.Parse(cashier.dgvCash.Rows[i].Cells[6].Value.ToString()) + "WHERE pcode= '" + cashier.dgvCash.Rows[i].Cells[2].Value.ToString() + "'", cn);
                         cm.ExecuteNonQuery();
                         cn.Close();
 
                         cn.Open();
                         cm = new SqlCommand("UPDATE tbCart SET status = 'Sold' WHERE id= '" + cashier.dgvCash.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cm = new SqlCommand("UPDATE tbCart SET fpagamento = '"+ MeioDePagamento + "' WHERE id= '" + cashier.dgvCash.Rows[i].Cells[1].Value.ToString() + "'", cn);
                         cm.ExecuteNonQuery();
                         cn.Close();
                     }
@@ -121,18 +129,32 @@ namespace POSales
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Valor incorreto. Por favor, insira o valor correto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void txtCash_TextChanged(object sender, EventArgs e)
         {
+            
+
             try
             {
                 double sale = double.Parse(txtSale.Text);
                 double cash = double.Parse(txtCash.Text);
                 double charge = cash - sale;
                 txtChange.Text = charge.ToString("#,##0.00");
+
+                if (double.Parse(txtCash.Text) > sale)
+                {
+                    txtChange.Text = ("Troco: " + txtChange.Text);                   
+                    return;
+                }
+
+                if (double.Parse(txtCash.Text) < sale)
+                {
+                    txtChange.Text = ("Faltou: " + txtChange.Text);                  
+                    return;
+                }
             }
             catch (Exception)
             {
@@ -144,6 +166,21 @@ namespace POSales
         {
             if (e.KeyCode == Keys.Escape) this.Dispose();
             else if (e.KeyCode == Keys.Enter) btnEnter.PerformClick();            
+        }
+
+         private void RadMoney_CheckedChanged(object sender, EventArgs e)
+        {
+            MeioDePagamento = RadMoney.Text.ToString();
+        }
+
+        private void RadCard_CheckedChanged(object sender, EventArgs e)
+        {
+            MeioDePagamento = RadCard.Text.ToString();
+        }
+
+        private void RadPix_CheckedChanged(object sender, EventArgs e)
+        {
+            MeioDePagamento = RadPix.Text.ToString();
         }
     }
 }

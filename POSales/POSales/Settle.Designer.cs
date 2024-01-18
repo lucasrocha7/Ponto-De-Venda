@@ -47,6 +47,9 @@ namespace POSales
             this.btnThree = new System.Windows.Forms.Button();
             this.btnDZero = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
+            this.RadMoney = new System.Windows.Forms.RadioButton();
+            this.RadCard = new System.Windows.Forms.RadioButton();
+            this.RadPix = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // txtSale
@@ -240,11 +243,53 @@ namespace POSales
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
+            // RadMoney
+            // 
+            this.RadMoney.AutoSize = true;
+            this.RadMoney.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RadMoney.Location = new System.Drawing.Point(12, 362);
+            this.RadMoney.Name = "RadMoney";
+            this.RadMoney.Size = new System.Drawing.Size(79, 21);
+            this.RadMoney.TabIndex = 3;
+            this.RadMoney.TabStop = true;
+            this.RadMoney.Text = "Dinheiro";
+            this.RadMoney.UseVisualStyleBackColor = true;
+            this.RadMoney.CheckedChanged += new System.EventHandler(this.RadMoney_CheckedChanged);
+            // 
+            // RadCard
+            // 
+            this.RadCard.AutoSize = true;
+            this.RadCard.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RadCard.Location = new System.Drawing.Point(95, 362);
+            this.RadCard.Name = "RadCard";
+            this.RadCard.Size = new System.Drawing.Size(73, 21);
+            this.RadCard.TabIndex = 4;
+            this.RadCard.TabStop = true;
+            this.RadCard.Text = "Cartão";
+            this.RadCard.UseVisualStyleBackColor = true;
+            this.RadCard.CheckedChanged += new System.EventHandler(this.RadCard_CheckedChanged);
+            // 
+            // RadPix
+            // 
+            this.RadPix.AutoSize = true;
+            this.RadPix.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RadPix.Location = new System.Drawing.Point(187, 362);
+            this.RadPix.Name = "RadPix";
+            this.RadPix.Size = new System.Drawing.Size(43, 21);
+            this.RadPix.TabIndex = 5;
+            this.RadPix.TabStop = true;
+            this.RadPix.Text = "Pix";
+            this.RadPix.UseVisualStyleBackColor = true;
+            this.RadPix.CheckedChanged += new System.EventHandler(this.RadPix_CheckedChanged);
+            // 
             // Settle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 361);
+            this.ClientSize = new System.Drawing.Size(245, 401);
+            this.Controls.Add(this.RadPix);
+            this.Controls.Add(this.RadCard);
+            this.Controls.Add(this.RadMoney);
             this.Controls.Add(this.btnDZero);
             this.Controls.Add(this.btnZero);
             this.Controls.Add(this.btnClear);
@@ -293,5 +338,8 @@ namespace POSales
         private System.Windows.Forms.Button btnDZero;
         private System.Windows.Forms.Button btnEnter;
         public System.Windows.Forms.TextBox txtSale;
+        public System.Windows.Forms.RadioButton RadMoney;
+        public System.Windows.Forms.RadioButton RadCard;
+        public System.Windows.Forms.RadioButton RadPix;
     }
 }

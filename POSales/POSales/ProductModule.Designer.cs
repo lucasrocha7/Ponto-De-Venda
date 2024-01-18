@@ -50,6 +50,8 @@ namespace POSales
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.UDReOrder = new System.Windows.Forms.NumericUpDown();
+            this.txtbuyprice = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UDReOrder)).BeginInit();
@@ -190,9 +192,9 @@ namespace POSales
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(32, 269);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.Size = new System.Drawing.Size(125, 20);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Preço :";
+            this.label7.Text = "Preço (Venda) :";
             // 
             // label8
             // 
@@ -235,9 +237,9 @@ namespace POSales
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(163, 266);
+            this.txtPrice.Location = new System.Drawing.Point(173, 266);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(194, 26);
+            this.txtPrice.Size = new System.Drawing.Size(184, 26);
             this.txtPrice.TabIndex = 15;
             // 
             // UDReOrder
@@ -263,11 +265,30 @@ namespace POSales
             0,
             0});
             // 
+            // txtbuyprice
+            // 
+            this.txtbuyprice.Location = new System.Drawing.Point(173, 310);
+            this.txtbuyprice.Name = "txtbuyprice";
+            this.txtbuyprice.Size = new System.Drawing.Size(184, 26);
+            this.txtbuyprice.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 313);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Preço (Compra):";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
             // ProductModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 367);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtbuyprice);
             this.Controls.Add(this.UDReOrder);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.cboCategory);
@@ -294,6 +315,7 @@ namespace POSales
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductModule";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProductModule_KeyDown);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.ProductModule_Validating);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -325,5 +347,7 @@ namespace POSales
         public System.Windows.Forms.ComboBox cboBrand;
         public System.Windows.Forms.ComboBox cboCategory;
         public System.Windows.Forms.NumericUpDown UDReOrder;
+        public System.Windows.Forms.TextBox txtbuyprice;
+        private System.Windows.Forms.Label label9;
     }
 }

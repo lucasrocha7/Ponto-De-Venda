@@ -62,9 +62,10 @@ namespace POSales
             {
                 if (txtPass.Text != txtRePass.Text)
                 {
-                    MessageBox.Show("Password did not March!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A senha e a confirmação não conferem!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+             
                 cn.Open();
                 cm = new SqlCommand("Insert into tbUser(username, password, role, name) Values (@username, @password, @role, @name)", cn);
                 cm.Parameters.AddWithValue("@username", txtUsername.Text);
@@ -73,15 +74,25 @@ namespace POSales
                 cm.Parameters.AddWithValue("@name", txtName.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
-                MessageBox.Show("New account has been successfully saved!", "Save Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("A nova conta foi salva com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
                 LoadUser();
+
+                if (txtName.Text != "" && txtPass.Text != "" && txtRePass.Text != "")
+                {
+                    MessageBox.Show("Campos invalidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
+
+         
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Warning");
             }
+          
+
         }
 
         private void btnAccCancel_Click(object sender, EventArgs e)
@@ -95,17 +106,17 @@ namespace POSales
             {
                 if (txtCurPass.Text != main._pass )
                 {
-                    MessageBox.Show("Current password did not martch!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("A senha atual esta incorreta!", "Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if(txtNPass.Text != txtRePass2.Text)
                 {
-                    MessageBox.Show("Confirm new password did not martch!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("A confirmação da senha esta incorreta!", "Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 dbcon.ExecuteQuery("UPDATE tbUser SET password= '" + txtNPass.Text + "' WHERE username='" + lblUsername.Text + "'");
-                MessageBox.Show("Password has been succefully changed!", "Changed Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("A senha foi alterada com sucesso!", "Senha alterada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -141,25 +152,25 @@ namespace POSales
             {
                 btnRemove.Enabled = false;
                 btnResetPass.Enabled = false;
-                lblAccNote.Text = "To change your password, go to change password tag.";
+                lblAccNote.Text = "Para alterar sua senha, vá em alterar senha";
 
             }
             else
             {
                 btnRemove.Enabled = true;
                 btnResetPass.Enabled = true;
-                lblAccNote.Text = "To change the password for " + username + ", click Reset Password.";
+                lblAccNote.Text = "Para alterar a senha de " + username + ", clique em Redefinir senha.";
             }
-            gbUser.Text = "Password For " + username;
+            gbUser.Text = "Senha para " + username;
             
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if ((MessageBox.Show("You chose to remove this account from this Point Of Sales System's user list. \n\n Are you sure you want to remove '" + username + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
+            if ((MessageBox.Show("Você optou por remover esta conta da lista de usuários deste sistema. \n\n Você tem certeza que deseja remover '" + username + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
                 dbcon.ExecuteQuery("DELETE FROM tbUser WHERE username = '" + username + "'");
-                MessageBox.Show("Account has been successfully deleted");
+                MessageBox.Show("A conta foi excluída com sucesso");
                 LoadUser();
             }
         }

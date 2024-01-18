@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,12 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
         public string solduser;
+        double Preco = 0;
+        int PQtd = 0;
+        double PrecoCompra = 0;
+        double TotalVenda = 0;
+        double LucroVenda = 0;
+
         MainForm main;
         public DailySale(MainForm mn)
         {
@@ -49,27 +56,83 @@ namespace POSales
         public void LoadSold()
         {
             int i = 0;
+            int Qty = 0;
             double total = 0;
+            double LucroVenda = 0;           
+            double lucro = 0;
+            double lucrototal = 0;
+            double buyprice = 0;
+            
             dgvSold.Rows.Clear();
             cn.Open();
             if(cboCashier.Text=="All Cashier")
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value+ "' and '" + dtTo.Value + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value+ "' and '" + dtTo.Value + "'", cn);
             }
             else
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "'", cn);
             }
             dr = cm.ExecuteReader();
             while(dr.Read())
             {
                 i++;
-                total += double.Parse(dr["total"].ToString());
-                dgvSold.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+                total += double.Parse(dr["total"].ToString());               
+                buyprice += double.Parse(dr["buyprice"].ToString());
+                dgvSold.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString(), dr["lucro"].ToString());
+             
             }
             dr.Close();
             cn.Close();
-            lblTotal.Text = total.ToString("#,##0.00");
+                   
+            
+           /* for (i = 0; i <dgvSold.Rows.Count; i++)
+            {
+                Lucro = buyprice + Convert.ToDouble(dgvSold.Rows.Count[i].Cells.[9].value);
+            }*/
+
+
+            
+            lblTotal.Text = total.ToString("R$ #,##0.00");
+            lblLucro.Text = lucro.ToString("R$ #,##0.00");
+
+          foreach (DataGridViewRow row in dgvSold.Rows)
+            {             
+                int PQtd = Convert.ToInt32(row.Cells[7].Value);
+                double PrecoCompra = Convert.ToDouble(row.Cells[6].Value);             
+                double TotalVenda = Convert.ToDouble(row.Cells[9].Value);
+                          
+                if (PQtd != 0)
+                {
+                    PrecoCompra = (PrecoCompra * PQtd);
+                    
+
+                    LucroVenda = (TotalVenda - PrecoCompra);
+                    row.Cells[10].Value = LucroVenda.ToString("#,##0.00");
+
+                 /* lucro+= Convert.ToInt32(row.Cells[10].Value);
+
+                    lblLucro.Text = Convert.ToDouble(lucro).ToString("C"); */
+
+
+
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
+
+           foreach(DataGridViewRow col in dgvSold.Rows)
+            {
+                lucro = lucro + Convert.ToDouble(col.Cells[10].Value);
+
+                lblLucro.Text = lucro.ToString("R$ #,##0.00");
+            }
+
+
+
         }
 
         private void cboCashier_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,7 +171,7 @@ namespace POSales
                 cancelOrder.txtPrice.Text = dgvSold.Rows[e.RowIndex].Cells[5].Value.ToString();
                 cancelOrder.txtQty.Text = dgvSold.Rows[e.RowIndex].Cells[6].Value.ToString();
                 cancelOrder.txtDisc.Text = dgvSold.Rows[e.RowIndex].Cells[7].Value.ToString();
-                cancelOrder.txtTotal.Text = dgvSold.Rows[e.RowIndex].Cells[8].Value.ToString();
+                cancelOrder.txtTotal.Text = dgvSold.Rows[e.RowIndex].Cells[8].Value.ToString();               
                 cancelOrder.txtCancelBy.Text = solduser;
                 cancelOrder.ShowDialog();
 
@@ -120,7 +183,7 @@ namespace POSales
             POSReport report = new POSReport();
             string param = "Date From: " + dtFrom.Value.ToShortDateString() + " To: " + dtTo.Value.ToShortDateString();
                
-            if (cboCashier.Text == "All Cashier")
+            if (cboCashier.Text == "Todos")
             {
                 report.LoadDailyReport("select c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc as discount, c.total from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "'", param, cboCashier.Text);
             }

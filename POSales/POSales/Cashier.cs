@@ -22,7 +22,9 @@ namespace POSales
         int qty;
         string id;
         string price;
-            
+        string buyprice;
+        int qtd;
+
         string stitle = "Point Of Sales";
         public Cashier()
         {
@@ -82,13 +84,13 @@ namespace POSales
         private void btnClear_Click(object sender, EventArgs e)
         {
             slide(btnClear);
-            if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Remover todos os itens do carrinho?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cn.Open();
                 cm = new SqlCommand("Delete from tbCart where transno like'" + lblTranNo.Text + "'", cn);
                 cm.ExecuteNonQuery();
                 cn.Close();
-                MessageBox.Show("All items has been successfully remove", "Remove item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Todos os itens foram removidos com sucesso", "Remover item", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadCart();
             }
         }
@@ -139,9 +141,11 @@ namespace POSales
                 int i = 0;
                 double total = 0;
                 double discount = 0;
+                double lucro = 0;
+                double buyprice = 0;
                 dgvCash.Rows.Clear();
                 cn.Open();
-                cm = new SqlCommand("SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE c.transno LIKE @transno and c.status LIKE 'Pending'", cn);
+                cm = new SqlCommand("SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total, p.buyprice, c.lucro, c.lucrototal FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE c.transno LIKE @transno and c.status LIKE 'Pending'", cn);
                 cm.Parameters.AddWithValue("@transno", lblTranNo.Text);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
@@ -149,14 +153,14 @@ namespace POSales
 
                     i++;
                     total += Convert.ToDouble(dr["total"].ToString());
-                    discount += Convert.ToDouble(dr["disc"].ToString());
-                    dgvCash.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));//
+                    discount += Convert.ToDouble(dr["disc"].ToString());                                        
+                    dgvCash.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));//
                     hascart = true;
                 }
                 dr.Close();
                 cn.Close();
                 lblSaleTotal.Text = total.ToString("#,##0.00");
-                lblDiscount.Text = discount.ToString("#,##0.00");
+                lblDiscount.Text = discount.ToString("#,##0.00");                         
                 GetCartTotal();
                 if (hascart) { btnClear.Enabled = true; btnSettle.Enabled = true; btnDiscount.Enabled = true; }
                 else { btnClear.Enabled = false; btnSettle.Enabled = false; btnDiscount.Enabled = false; }
@@ -164,7 +168,7 @@ namespace POSales
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, stitle);
-            }
+            }          
         
         }
 
@@ -173,15 +177,17 @@ namespace POSales
             double discount = double.Parse(lblDiscount.Text);
             double sales = double.Parse(lblSaleTotal.Text) - discount;
             double vat = sales * 0.12;//VAT: 12% of VAT Payable (Output Tax less Input Tax)
-            double vatable = sales - vat;
+           
 
-            lblVat.Text = vat.ToString("#,##0.00");
-            lblVatable.Text = vatable.ToString("#,##0.00");
+
+            
+           
             lblDisplayTotal.Text = sales.ToString("#,##0.00");
+           
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimer.Text = DateTime.Now.ToString("hh:mm:ss");
+            lblTimer.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
         public void GetTranNo()
@@ -228,6 +234,8 @@ namespace POSales
                 {
                     string _pcode;
                     double _price;
+                    double _buyprice;
+                    double _lucro;
                     int _qty;
                     cn.Open();
                     cm = new SqlCommand("SELECT * FROM tbProduct WHERE barcode LIKE '" + txtBarcode.Text + "'", cn);
@@ -238,12 +246,14 @@ namespace POSales
                         qty = int.Parse(dr["qty"].ToString());
                         _pcode = dr["pcode"].ToString();
                         _price = double.Parse(dr["price"].ToString());
+                        _buyprice = double.Parse(dr["buyprice"].ToString());
+                        _lucro = double.Parse(dr["lucro"].ToString());
                         _qty = int.Parse(txtQty.Text);
                        
                         dr.Close();
                         cn.Close();
                         //insert to tbCart
-                        AddToCart(_pcode, _price, _qty);
+                        AddToCart(_pcode, _price, _qty, _buyprice, _lucro);
                     }
                     dr.Close();
                     cn.Close();
@@ -256,7 +266,7 @@ namespace POSales
             }
         }
 
-        public void AddToCart(string _pcode, double _price,int _qty)
+        public void AddToCart(string _pcode, double _price,int _qty, double _buyprice, double _lucro)
         {
             try
             {
@@ -302,10 +312,12 @@ namespace POSales
                         return;
                     }
                     cn.Open();
-                    cm = new SqlCommand("INSERT INTO tbCart(transno, pcode, price, qty, sdate, cashier)VALUES(@transno, @pcode, @price, @qty, @sdate, @cashier)", cn);
+                    cm = new SqlCommand("INSERT INTO tbCart(transno, pcode, price, buyprice, qty, lucro, sdate, cashier)VALUES(@transno, @pcode, @price, @buyprice, @qty, @sdate, @cashier)", cn);
                     cm.Parameters.AddWithValue("@transno", lblTranNo.Text);
                     cm.Parameters.AddWithValue("@pcode", _pcode);
                     cm.Parameters.AddWithValue("@price", _price);
+                    cm.Parameters.AddWithValue("@buyprice", _buyprice);
+                    cm.Parameters.AddWithValue("@lucro", _lucro);
                     cm.Parameters.AddWithValue("@qty", _qty);
                     cm.Parameters.AddWithValue("@sdate", DateTime.Now);
                     cm.Parameters.AddWithValue("@cashier", lblUsername.Text);
@@ -324,7 +336,8 @@ namespace POSales
         {
             int i = dgvCash.CurrentRow.Index;
             id = dgvCash[1, i].Value.ToString();
-            price = dgvCash[7, i].Value.ToString();
+            price = dgvCash[8, i].Value.ToString();          
+                       
         }
 
         private void dgvCash_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -348,9 +361,9 @@ namespace POSales
                 cm = new SqlCommand("SELECT SUM(qty) as qty FROM tbProduct WHERE pcode LIKE'" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "' GROUP BY pcode", cn);
                 i = int.Parse(cm.ExecuteScalar().ToString());
                 cn.Close();
-                if (int.Parse(dgvCash.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
+                if (int.Parse(dgvCash.Rows[e.RowIndex].Cells[6].Value.ToString()) < i)
                 {
-                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty + " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTranNo.Text + "'  AND pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "'");
+                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty + " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTranNo.Text + "'  AND pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "'");                    
                     LoadCart();
                 }
                 else

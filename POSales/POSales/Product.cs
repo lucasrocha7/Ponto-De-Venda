@@ -27,14 +27,14 @@ namespace POSales
         public void LoadProduct()
         {
             int i = 0;
-            dgvProduct.Rows.Clear();
-            cm = new SqlCommand("SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder FROM tbProduct AS p INNER JOIN tbBrand AS b ON b.id = p.bid INNER JOIN tbCategory AS c on c.id = p.cid WHERE CONCAT(p.pdesc, b.brand, c.category) LIKE '%" +txtSearch.Text+ "%'",cn);
+            dgvProduct.Rows.Clear(); 
+            cm = new SqlCommand("SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.buyprice, p.reorder FROM tbProduct AS p INNER JOIN tbBrand AS b ON b.id = p.bid INNER JOIN tbCategory AS c on c.id = p.cid WHERE CONCAT(p.pdesc, b.brand, c.category) LIKE '%" + txtSearch.Text+ "%'",cn);
             cn.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
             }
             dr.Close();
             cn.Close();
@@ -58,7 +58,8 @@ namespace POSales
                 product.cboBrand.Text = dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString();
                 product.cboCategory.Text = dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
                 product.txtPrice.Text = dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString();
-                product.UDReOrder.Value = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString());
+                product.txtbuyprice.Text = dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString();
+                product.UDReOrder.Value = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[8].Value.ToString());
 
                 product.txtPcode.Enabled = false;
                 product.btnSave.Enabled = false;
@@ -67,10 +68,10 @@ namespace POSales
             }
             else if (colName == "Delete")
             {
-                if (MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Apagar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("DELETE FROM tbProduct WHERE pcode LIKE '" + dgvProduct[1, e.RowIndex].Value.ToString() + "'", cn);
+                    cm = new SqlCommand("DELETE FROM tbProduct WHERE pcode LIKE '" + dgvProduct[1, e.RowIndex].Value.ToString() + "'", cn);        
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("O produto foi excluído com sucesso.", "Point Of Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);

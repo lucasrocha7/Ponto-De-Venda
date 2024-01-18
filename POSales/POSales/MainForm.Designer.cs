@@ -96,13 +96,12 @@ namespace POSales
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 845);
+            this.btnLogout.Location = new System.Drawing.Point(0, 800);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(183, 45);
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Sair";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -112,7 +111,7 @@ namespace POSales
             this.panelSubSetting.Controls.Add(this.btnStore);
             this.panelSubSetting.Controls.Add(this.btnUser);
             this.panelSubSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubSetting.Location = new System.Drawing.Point(0, 755);
+            this.panelSubSetting.Location = new System.Drawing.Point(0, 710);
             this.panelSubSetting.Name = "panelSubSetting";
             this.panelSubSetting.Size = new System.Drawing.Size(183, 90);
             this.panelSubSetting.TabIndex = 8;
@@ -155,7 +154,7 @@ namespace POSales
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Location = new System.Drawing.Point(0, 710);
+            this.btnSetting.Location = new System.Drawing.Point(0, 665);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(183, 45);
@@ -171,7 +170,7 @@ namespace POSales
             this.panelSubRecord.Controls.Add(this.btnPosRecord);
             this.panelSubRecord.Controls.Add(this.btnSaleHist);
             this.panelSubRecord.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubRecord.Location = new System.Drawing.Point(0, 620);
+            this.panelSubRecord.Location = new System.Drawing.Point(0, 575);
             this.panelSubRecord.Name = "panelSubRecord";
             this.panelSubRecord.Size = new System.Drawing.Size(183, 90);
             this.panelSubRecord.TabIndex = 6;
@@ -215,7 +214,7 @@ namespace POSales
             this.btnRecord.FlatAppearance.BorderSize = 0;
             this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecord.ForeColor = System.Drawing.Color.White;
-            this.btnRecord.Location = new System.Drawing.Point(0, 575);
+            this.btnRecord.Location = new System.Drawing.Point(0, 530);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRecord.Size = new System.Drawing.Size(183, 45);
@@ -231,7 +230,7 @@ namespace POSales
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnSupplier.Location = new System.Drawing.Point(0, 530);
+            this.btnSupplier.Location = new System.Drawing.Point(0, 485);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSupplier.Size = new System.Drawing.Size(183, 45);
@@ -247,7 +246,7 @@ namespace POSales
             this.panelSubStock.Controls.Add(this.btnStockAdjustment);
             this.panelSubStock.Controls.Add(this.btnStockEntry);
             this.panelSubStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubStock.Location = new System.Drawing.Point(0, 440);
+            this.panelSubStock.Location = new System.Drawing.Point(0, 395);
             this.panelSubStock.Name = "panelSubStock";
             this.panelSubStock.Size = new System.Drawing.Size(183, 90);
             this.panelSubStock.TabIndex = 0;
@@ -291,7 +290,7 @@ namespace POSales
             this.btnInStock.FlatAppearance.BorderSize = 0;
             this.btnInStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInStock.ForeColor = System.Drawing.Color.White;
-            this.btnInStock.Location = new System.Drawing.Point(0, 395);
+            this.btnInStock.Location = new System.Drawing.Point(0, 350);
             this.btnInStock.Name = "btnInStock";
             this.btnInStock.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnInStock.Size = new System.Drawing.Size(183, 45);
@@ -308,7 +307,7 @@ namespace POSales
             this.panelSubProduct.Controls.Add(this.btnCategory);
             this.panelSubProduct.Controls.Add(this.btnProductList);
             this.panelSubProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubProduct.Location = new System.Drawing.Point(0, 260);
+            this.panelSubProduct.Location = new System.Drawing.Point(0, 215);
             this.panelSubProduct.Name = "panelSubProduct";
             this.panelSubProduct.Size = new System.Drawing.Size(183, 135);
             this.panelSubProduct.TabIndex = 0;
@@ -367,7 +366,7 @@ namespace POSales
             this.btnProduct.FlatAppearance.BorderSize = 0;
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.ForeColor = System.Drawing.Color.White;
-            this.btnProduct.Location = new System.Drawing.Point(0, 215);
+            this.btnProduct.Location = new System.Drawing.Point(0, 170);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProduct.Size = new System.Drawing.Size(183, 45);
@@ -379,14 +378,16 @@ namespace POSales
             // 
             // btnDashboard
             // 
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Location = new System.Drawing.Point(0, 170);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(183, 45);
+            this.btnDashboard.Size = new System.Drawing.Size(183, 229);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Painel";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -456,6 +457,7 @@ namespace POSales
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(316, 4);
@@ -467,8 +469,10 @@ namespace POSales
             // 
             // panelMain
             // 
+            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.Color.White;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(200, 40);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(984, 621);

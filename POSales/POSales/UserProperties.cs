@@ -36,7 +36,7 @@ namespace POSales
         {
             try
             {
-                if ((MessageBox.Show("Are you sure you want to change this account properties?", "Change Properties", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
+                if ((MessageBox.Show("Tem certeza de que deseja alterar as propriedades desta conta?", "Alterar propriedades", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
                  {
                     cn.Open();
                     cm = new SqlCommand("UPDATE tbUser SET name=@name, role=@role, isactivate=@isactivate WHERE username='" + username + "'",cn);
@@ -45,7 +45,7 @@ namespace POSales
                     cm.Parameters.AddWithValue("@isactivate", cbActivate.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Account properties has been successfully changed!", "Update Properties", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("As propriedades da conta foram alteradas com sucesso!", "Atualizar propriedades", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     account.LoadUser();
                     this.Dispose();
                 }

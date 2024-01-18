@@ -56,12 +56,8 @@ namespace POSales
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.lblTimer = new System.Windows.Forms.Label();
-            this.lblVatable = new System.Windows.Forms.Label();
-            this.lblVat = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblSaleTotal = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
@@ -73,18 +69,19 @@ namespace POSales
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.panelSlide = new System.Windows.Forms.Panel();
             this.dgvCash = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAdd = new System.Windows.Forms.DataGridViewImageColumn();
             this.colReduce = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -338,12 +335,8 @@ namespace POSales
             // 
             this.panel5.Controls.Add(this.txtQty);
             this.panel5.Controls.Add(this.lblTimer);
-            this.panel5.Controls.Add(this.lblVatable);
-            this.panel5.Controls.Add(this.lblVat);
             this.panel5.Controls.Add(this.lblDiscount);
             this.panel5.Controls.Add(this.lblSaleTotal);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.txtBarcode);
@@ -381,24 +374,6 @@ namespace POSales
             this.lblTimer.Text = "00:00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblVatable
-            // 
-            this.lblVatable.Location = new System.Drawing.Point(102, 444);
-            this.lblVatable.Name = "lblVatable";
-            this.lblVatable.Size = new System.Drawing.Size(115, 20);
-            this.lblVatable.TabIndex = 9;
-            this.lblVatable.Text = "0.00";
-            this.lblVatable.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblVat
-            // 
-            this.lblVat.Location = new System.Drawing.Point(102, 411);
-            this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(115, 20);
-            this.lblVat.TabIndex = 9;
-            this.lblVat.Text = "0.00";
-            this.lblVat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblDiscount
             // 
             this.lblDiscount.Location = new System.Drawing.Point(102, 378);
@@ -416,24 +391,6 @@ namespace POSales
             this.lblSaleTotal.TabIndex = 8;
             this.lblSaleTotal.Text = "0.00";
             this.lblSaleTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 444);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 20);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "VATable :";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 411);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 20);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "VAT :";
             // 
             // label8
             // 
@@ -550,6 +507,7 @@ namespace POSales
             this.Column2,
             this.Column4,
             this.Column7,
+            this.Column3,
             this.Column5,
             this.Column6,
             this.Column8,
@@ -566,6 +524,11 @@ namespace POSales
             this.dgvCash.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCash_CellContentClick);
             this.dgvCash.SelectionChanged += new System.EventHandler(this.dgvCash_SelectionChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -579,7 +542,7 @@ namespace POSales
             this.Column9.HeaderText = "Id";
             this.Column9.Name = "Column9";
             this.Column9.Visible = false;
-            this.Column9.Width = 49;
+            this.Column9.Width = 47;
             // 
             // Column2
             // 
@@ -602,6 +565,13 @@ namespace POSales
             this.Column7.HeaderText = "Preço";
             this.Column7.Name = "Column7";
             this.Column7.Width = 76;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Preço Compra";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
             // 
             // Column5
             // 
@@ -653,11 +623,6 @@ namespace POSales
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.Name = "Delete";
             this.Delete.Width = 5;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Cashier
             // 
@@ -713,8 +678,6 @@ namespace POSales
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Panel panelSlide;
         private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -729,8 +692,6 @@ namespace POSales
         public System.Windows.Forms.DataGridView dgvCash;
         public System.Windows.Forms.Label lblDisplayTotal;
         public System.Windows.Forms.Label lblname;
-        public System.Windows.Forms.Label lblVatable;
-        public System.Windows.Forms.Label lblVat;
         public System.Windows.Forms.Label lblDiscount;
         public System.Windows.Forms.Label lblSaleTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -738,6 +699,7 @@ namespace POSales
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;

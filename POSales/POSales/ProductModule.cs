@@ -65,18 +65,19 @@ namespace POSales
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            try          
             {
-                if (MessageBox.Show("Tem certeza de que deseja salvar este produto?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja salvar este produto?", "Salvar Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("INSERT INTO tbProduct(pcode, barcode, pdesc, bid, cid, price, reorder)VALUES (@pcode,@barcode,@pdesc,@bid,@cid,@price, @reorder)", cn);
+                    cm = new SqlCommand("INSERT INTO tbProduct(pcode, barcode, pdesc, bid, cid, price, buyprice, reorder)VALUES (@pcode,@barcode,@pdesc,@bid,@cid,@price,@buyprice,@reorder)", cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue);
                     cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue);
                     cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cm.Parameters.AddWithValue("@reorder", UDReOrder.Value);
+                    cm.Parameters.AddWithValue("@buyprice", double.Parse(txtbuyprice.Text));
+                    cm.Parameters.AddWithValue("@reorder", UDReOrder.Value);                    
                     cn.Open();
                     cm.ExecuteNonQuery();
                     cn.Close();
@@ -104,14 +105,15 @@ namespace POSales
             {
                 if (MessageBox.Show("Tem certeza de que deseja atualizar este produto?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tbProduct SET barcode=@barcode,pdesc=@pdesc,bid=@bid,cid=@cid,price=@price, reorder=@reorder WHERE pcode LIKE @pcode", cn);
+                    cm = new SqlCommand("UPDATE tbProduct SET barcode=@barcode,pdesc=@pdesc,bid=@bid,cid=@cid,price=@price,buyprice=@buyprice,reorder=@reorder  WHERE pcode LIKE @pcode", cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue);
                     cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue);
                     cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cm.Parameters.AddWithValue("@reorder", UDReOrder.Value);
+                    cm.Parameters.AddWithValue("@buyprice", double.Parse(txtbuyprice.Text));
+                    cm.Parameters.AddWithValue("@reorder", UDReOrder.Value);                  
                     cn.Open();
                     cm.ExecuteNonQuery();
                     cn.Close();
@@ -134,6 +136,16 @@ namespace POSales
             {
                 this.Dispose();
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProductModule_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

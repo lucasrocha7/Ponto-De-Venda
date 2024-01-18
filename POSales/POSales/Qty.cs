@@ -69,7 +69,7 @@ namespace POSales
                     {
                         if (qty < (int.Parse(txtQty.Text) + cart_qty))
                         {
-                            MessageBox.Show("Unable to procced. Remaining qty on hand is" + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não foi possível processar. A quantidade restante disponível é" + qty, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         cn.Open();
@@ -85,7 +85,7 @@ namespace POSales
                     {
                         if (qty < (int.Parse(txtQty.Text) + cart_qty))
                         {
-                            MessageBox.Show("Unable to procced. Remaining qty on hand is" + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não foi possível processar. A quantidade restante disponível é" + qty, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         cn.Open();
