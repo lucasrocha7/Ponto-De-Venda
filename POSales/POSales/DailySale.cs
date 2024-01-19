@@ -67,11 +67,11 @@ namespace POSales
             cn.Open();
             if(cboCashier.Text=="All Cashier")
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value+ "' and '" + dtTo.Value + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value+ "' and '" + dtTo.Value + "'", cn);
             }
             else
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "'", cn);
             }
             dr = cm.ExecuteReader();
             while(dr.Read())
@@ -79,7 +79,7 @@ namespace POSales
                 i++;
                 total += double.Parse(dr["total"].ToString());               
                 buyprice += double.Parse(dr["buyprice"].ToString());
-                dgvSold.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString(), dr["lucro"].ToString());
+                dgvSold.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString(), dr["lucro"].ToString(), dr["fpagamento"].ToString());
              
             }
             dr.Close();

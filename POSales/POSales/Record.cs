@@ -56,22 +56,64 @@ namespace POSales
         {
             try
             {
+               
                 dgvSoldItems.Rows.Clear();
                 int i = 0;
                 cn.Open();
-                cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice", cn);
+
+                if(cbSoldItems.Text == "")
+                {
+                    MessageBox.Show("Selecione uma opção de filtro");
+                    return;
+                }
+
+                if (cbSoldItems.Text == "Tudo")
+                {
+                    cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
+
+                }
+
+                if (cbSoldItems.Text == "Dinheiro")
+                {
+                    cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Dinheiro' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
+
+                }
+
+                if (cbSoldItems.Text == "Cartão")
+                {
+                    cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Cartão' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
+
+                }
+
+                if (cbSoldItems.Text == "Pix")
+                {
+                    cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Pix' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
+
+                }
+
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
-                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["buyprice"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"), dr["lucro"].ToString(), dr["fpagamento"].ToString());
                 }
                 dr.Close();
                 cn.Close();
 
                 cn.Open();
-                cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "'", cn);
-                lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+
+                if (cbSoldItems.Text == "Tudo")
+                {
+                    cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "'", cn);
+                    lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                    
+                }
+                else
+                {
+                    cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND fpagamento = '" + cbSoldItems.Text + "' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = '" + cbSoldItems.Text + "'", cn);
+                    lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                    
+                }
                 cn.Close();
             }
             catch (Exception ex)
@@ -309,6 +351,11 @@ namespace POSales
         }
 
         private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTopSell_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
