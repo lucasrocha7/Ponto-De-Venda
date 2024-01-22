@@ -16,8 +16,7 @@ namespace POSales
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
-        SqlDataReader dr;
-
+        SqlDataReader dr;      
         double LucroVenda = 0;
         public Record()
         {
@@ -53,40 +52,44 @@ namespace POSales
         }
 
         public void LoadSoldItems()
+
         {
+            double lucrototal = 0;
             try
             {
-               
+                
                 dgvSoldItems.Rows.Clear();
                 int i = 0;
                 cn.Open();
+               
 
-                if(cbSoldItems.Text == "")
-                {
-                    MessageBox.Show("Selecione uma opção de filtro");
-                    return;
-                }
-
-                if (cbSoldItems.Text == "Tudo")
-                {
+                if (cbSoldItems.Text == "Tudo" || cbSoldItems.Text == "Filtrar")
+                
+                {                   
                     cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
 
                 }
 
                 if (cbSoldItems.Text == "Dinheiro")
+                    
                 {
+                    
                     cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Dinheiro' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
 
                 }
 
                 if (cbSoldItems.Text == "Cartão")
+                    
                 {
+                   
                     cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Cartão' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
 
                 }
 
                 if (cbSoldItems.Text == "Pix")
+                   
                 {
+                    
                     cm = new SqlCommand("SELECT c.pcode, p.pdesc, c.price,p.buyprice,c.lucro,c.fpagamento, sum(c.qty) as qty, SUM(c.disc) AS disc, SUM(c.total) AS total FROM tbCart AS c INNER JOIN tbProduct AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "' AND fpagamento = 'Pix' GROUP BY c.pcode, p.pdesc, c.price, p.buyprice,c.lucro, c.fpagamento", cn);
 
                 }
@@ -104,9 +107,10 @@ namespace POSales
 
                 if (cbSoldItems.Text == "Tudo")
                 {
-                    cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "'", cn);
+                    cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "'", cn);                   
                     lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
                     
+
                 }
                 else
                 {
@@ -141,7 +145,18 @@ namespace POSales
                     row.DefaultCellStyle.BackColor = Color.Red;
                     row.DefaultCellStyle.ForeColor = Color.Red;
                 }
+
+              /*  foreach (DataGridViewRow col in dgvSoldItems.Rows)
+                {
+                    lucrototal = lucrototal + Convert.ToDouble(col.Cells[4].Value);
+
+                    lblLucro.Text = lucrototal.ToString("#,##0.00");
+                }*/
+
+
             }
+
+
 
         }
 

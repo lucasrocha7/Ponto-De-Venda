@@ -34,6 +34,10 @@ namespace POSales
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,10 +53,6 @@ namespace POSales
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,7 +74,19 @@ namespace POSales
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvSoldItems = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblLucro = new System.Windows.Forms.Label();
+            this.cbSoldItems = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnLoadSoldItems = new System.Windows.Forms.Button();
             this.btnPrintSoldItems = new System.Windows.Forms.Button();
@@ -146,18 +158,6 @@ namespace POSales
             this.dtToStockIn = new System.Windows.Forms.DateTimePicker();
             this.dtFromStockIn = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbSoldItems = new System.Windows.Forms.ComboBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblLucro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -450,6 +450,79 @@ namespace POSales
             this.dgvSoldItems.Size = new System.Drawing.Size(991, 394);
             this.dgvSoldItems.TabIndex = 6;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nº";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 49;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Pcódigo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 94;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Descrição";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // Column16
+            // 
+            this.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column16.HeaderText = "Preço";
+            this.Column16.Name = "Column16";
+            this.Column16.Width = 76;
+            // 
+            // Column19
+            // 
+            this.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column19.HeaderText = "Custo";
+            this.Column19.Name = "Column19";
+            this.Column19.Width = 74;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Qtd";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 60;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column3.HeaderText = "Desconto";
+            this.Column3.Name = "Column3";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 65;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Lucro";
+            this.Column20.Name = "Column20";
+            // 
+            // Column21
+            // 
+            this.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column21.HeaderText = "Forma d/ Pag";
+            this.Column21.Name = "Column21";
+            this.Column21.Width = 131;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lblLucro);
@@ -466,6 +539,33 @@ namespace POSales
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(991, 69);
             this.panel3.TabIndex = 1;
+            // 
+            // lblLucro
+            // 
+            this.lblLucro.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLucro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLucro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLucro.Location = new System.Drawing.Point(848, 21);
+            this.lblLucro.Name = "lblLucro";
+            this.lblLucro.Size = new System.Drawing.Size(138, 31);
+            this.lblLucro.TabIndex = 19;
+            this.lblLucro.Text = "0.00";
+            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbSoldItems
+            // 
+            this.cbSoldItems.FormattingEnabled = true;
+            this.cbSoldItems.Items.AddRange(new object[] {
+            "Tudo",
+            "Dinheiro",
+            "Cartão",
+            "Pix"});
+            this.cbSoldItems.Location = new System.Drawing.Point(316, 20);
+            this.cbSoldItems.Name = "cbSoldItems";
+            this.cbSoldItems.Size = new System.Drawing.Size(82, 28);
+            this.cbSoldItems.TabIndex = 18;
+            this.cbSoldItems.Tag = "";
+            this.cbSoldItems.Text = "Filtrar";
             // 
             // lblTotal
             // 
@@ -487,7 +587,7 @@ namespace POSales
             this.btnLoadSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadSoldItems.Image")));
             this.btnLoadSoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadSoldItems.Location = new System.Drawing.Point(532, 16);
+            this.btnLoadSoldItems.Location = new System.Drawing.Point(454, 16);
             this.btnLoadSoldItems.Name = "btnLoadSoldItems";
             this.btnLoadSoldItems.Size = new System.Drawing.Size(118, 36);
             this.btnLoadSoldItems.TabIndex = 16;
@@ -503,7 +603,7 @@ namespace POSales
             this.btnPrintSoldItems.FlatAppearance.BorderSize = 0;
             this.btnPrintSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintSoldItems.Image")));
-            this.btnPrintSoldItems.Location = new System.Drawing.Point(654, 16);
+            this.btnPrintSoldItems.Location = new System.Drawing.Point(576, 16);
             this.btnPrintSoldItems.Name = "btnPrintSoldItems";
             this.btnPrintSoldItems.Size = new System.Drawing.Size(42, 36);
             this.btnPrintSoldItems.TabIndex = 15;
@@ -513,7 +613,7 @@ namespace POSales
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 24);
+            this.label4.Location = new System.Drawing.Point(163, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 20);
             this.label4.TabIndex = 2;
@@ -522,7 +622,7 @@ namespace POSales
             // dtToSoldItems
             // 
             this.dtToSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtToSoldItems.Location = new System.Drawing.Point(284, 21);
+            this.dtToSoldItems.Location = new System.Drawing.Point(206, 21);
             this.dtToSoldItems.Name = "dtToSoldItems";
             this.dtToSoldItems.Size = new System.Drawing.Size(104, 26);
             this.dtToSoldItems.TabIndex = 1;
@@ -530,7 +630,7 @@ namespace POSales
             // dtFromSoldItems
             // 
             this.dtFromSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFromSoldItems.Location = new System.Drawing.Point(128, 21);
+            this.dtFromSoldItems.Location = new System.Drawing.Point(50, 21);
             this.dtFromSoldItems.Name = "dtFromSoldItems";
             this.dtFromSoldItems.Size = new System.Drawing.Size(104, 26);
             this.dtFromSoldItems.TabIndex = 1;
@@ -538,7 +638,7 @@ namespace POSales
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(90, 24);
+            this.label5.Location = new System.Drawing.Point(12, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 20);
             this.label5.TabIndex = 0;
@@ -1200,106 +1300,6 @@ namespace POSales
             this.label9.Size = new System.Drawing.Size(105, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Filtrar por: De";
-            // 
-            // cbSoldItems
-            // 
-            this.cbSoldItems.FormattingEnabled = true;
-            this.cbSoldItems.Items.AddRange(new object[] {
-            "Tudo",
-            "Dinheiro",
-            "Cartão",
-            "Pix"});
-            this.cbSoldItems.Location = new System.Drawing.Point(394, 20);
-            this.cbSoldItems.Name = "cbSoldItems";
-            this.cbSoldItems.Size = new System.Drawing.Size(82, 28);
-            this.cbSoldItems.TabIndex = 18;
-            this.cbSoldItems.Tag = "";
-            this.cbSoldItems.Text = "Filtrar";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nº";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 49;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Pcódigo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 94;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Descrição";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // Column16
-            // 
-            this.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column16.HeaderText = "Preço";
-            this.Column16.Name = "Column16";
-            this.Column16.Width = 76;
-            // 
-            // Column19
-            // 
-            this.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column19.HeaderText = "Custo";
-            this.Column19.Name = "Column19";
-            this.Column19.Width = 74;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Qtd";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 60;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column3.HeaderText = "Desconto";
-            this.Column3.Name = "Column3";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 65;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "Lucro";
-            this.Column20.Name = "Column20";
-            // 
-            // Column21
-            // 
-            this.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column21.HeaderText = "Forma d/ Pag";
-            this.Column21.Name = "Column21";
-            this.Column21.Width = 131;
-            // 
-            // lblLucro
-            // 
-            this.lblLucro.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblLucro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLucro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblLucro.Location = new System.Drawing.Point(848, 21);
-            this.lblLucro.Name = "lblLucro";
-            this.lblLucro.Size = new System.Drawing.Size(138, 31);
-            this.lblLucro.TabIndex = 19;
-            this.lblLucro.Text = "0.00";
-            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Record
             // 
