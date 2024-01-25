@@ -30,11 +30,11 @@ namespace POSales
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DailySale));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -63,10 +63,17 @@ namespace POSales
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cbSoldItems = new System.Windows.Forms.ComboBox();
+            this.btnLoadSoldItems = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSold)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,7 +116,7 @@ namespace POSales
             this.dtFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtFrom.CustomFormat = "dd/MM/yyyy";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.Location = new System.Drawing.Point(84, 15);
+            this.dtFrom.Location = new System.Drawing.Point(43, 15);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(106, 26);
             this.dtFrom.TabIndex = 10;
@@ -120,7 +127,7 @@ namespace POSales
             this.dtTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtTo.CustomFormat = "dd/MM/yyyy";
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.Location = new System.Drawing.Point(235, 15);
+            this.dtTo.Location = new System.Drawing.Point(198, 15);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(125, 26);
             this.dtTo.TabIndex = 10;
@@ -130,17 +137,17 @@ namespace POSales
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 18);
+            this.label2.Location = new System.Drawing.Point(5, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(34, 20);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Filtrar De:";
+            this.label2.Text = "De:";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 18);
+            this.label3.Location = new System.Drawing.Point(154, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 20);
             this.label3.TabIndex = 11;
@@ -150,8 +157,8 @@ namespace POSales
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Navy;
-            this.lblTotal.Location = new System.Drawing.Point(729, 30);
+            this.lblTotal.ForeColor = System.Drawing.Color.Snow;
+            this.lblTotal.Location = new System.Drawing.Point(29, 25);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(113, 20);
             this.lblTotal.TabIndex = 12;
@@ -162,20 +169,20 @@ namespace POSales
             // 
             this.cboCashier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboCashier.FormattingEnabled = true;
-            this.cboCashier.Location = new System.Drawing.Point(367, 13);
+            this.cboCashier.Location = new System.Drawing.Point(337, 14);
             this.cboCashier.Name = "cboCashier";
-            this.cboCashier.Size = new System.Drawing.Size(163, 28);
+            this.cboCashier.Size = new System.Drawing.Size(85, 28);
             this.cboCashier.TabIndex = 13;
-            this.cboCashier.Text = "Selecione o Caixa";
+            this.cboCashier.Text = "Caixa";
             this.cboCashier.SelectedIndexChanged += new System.EventHandler(this.cboCashier_SelectedIndexChanged);
             // 
             // btnPrint
             // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(534, 9);
+            this.btnPrint.Location = new System.Drawing.Point(649, 10);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(42, 36);
             this.btnPrint.TabIndex = 14;
@@ -184,14 +191,14 @@ namespace POSales
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.lblLucro);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.btnLoadSoldItems);
+            this.panel2.Controls.Add(this.cbSoldItems);
             this.panel2.Controls.Add(this.cboCashier);
             this.panel2.Controls.Add(this.btnPrint);
             this.panel2.Controls.Add(this.dtFrom);
             this.panel2.Controls.Add(this.dtTo);
-            this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -204,19 +211,25 @@ namespace POSales
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(729, 10);
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 20);
+            this.label4.Size = new System.Drawing.Size(46, 18);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Total Vendido:";
+            this.label4.Text = "Total:";
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(889, 9);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 16;
             this.label1.Text = "Lucro Total:";
             // 
@@ -224,10 +237,10 @@ namespace POSales
             // 
             this.lblLucro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLucro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLucro.ForeColor = System.Drawing.Color.Navy;
-            this.lblLucro.Location = new System.Drawing.Point(889, 30);
+            this.lblLucro.ForeColor = System.Drawing.Color.Snow;
+            this.lblLucro.Location = new System.Drawing.Point(29, 25);
             this.lblLucro.Name = "lblLucro";
-            this.lblLucro.Size = new System.Drawing.Size(91, 20);
+            this.lblLucro.Size = new System.Drawing.Size(113, 20);
             this.lblLucro.TabIndex = 15;
             this.lblLucro.Text = "0.00";
             this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,14 +250,14 @@ namespace POSales
             this.dgvSold.AllowUserToAddRows = false;
             this.dgvSold.BackgroundColor = System.Drawing.Color.White;
             this.dgvSold.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSold.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle86.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle86.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle86.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSold.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle86;
             this.dgvSold.ColumnHeadersHeight = 30;
             this.dgvSold.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSold.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -268,6 +281,8 @@ namespace POSales
             this.dgvSold.RowHeadersVisible = false;
             this.dgvSold.Size = new System.Drawing.Size(1010, 445);
             this.dgvSold.TabIndex = 16;
+            this.dgvSold.Tag = "";
+            this.dgvSold.UseWaitCursor = true;
             this.dgvSold.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSold_CellContentClick_1);
             // 
             // Column1
@@ -306,8 +321,8 @@ namespace POSales
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle87;
             this.Column7.HeaderText = "Preço";
             this.Column7.Name = "Column7";
             // 
@@ -320,16 +335,16 @@ namespace POSales
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle88;
             this.Column5.HeaderText = "Qtd";
             this.Column5.Name = "Column5";
             this.Column5.Width = 91;
             // 
             // Column6
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle89;
             this.Column6.HeaderText = "Desconto";
             this.Column6.Name = "Column6";
             this.Column6.Width = 92;
@@ -337,8 +352,8 @@ namespace POSales
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle90;
             this.Column8.HeaderText = "Total";
             this.Column8.Name = "Column8";
             // 
@@ -363,6 +378,76 @@ namespace POSales
             this.Cancel.Name = "Cancel";
             this.Cancel.Width = 5;
             // 
+            // cbSoldItems
+            // 
+            this.cbSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbSoldItems.FormattingEnabled = true;
+            this.cbSoldItems.Items.AddRange(new object[] {
+            "Tudo",
+            "Dinheiro",
+            "Cartão",
+            "Pix"});
+            this.cbSoldItems.Location = new System.Drawing.Point(428, 14);
+            this.cbSoldItems.Name = "cbSoldItems";
+            this.cbSoldItems.Size = new System.Drawing.Size(82, 28);
+            this.cbSoldItems.TabIndex = 19;
+            this.cbSoldItems.Tag = "";
+            this.cbSoldItems.Text = "Filtrar";
+            this.cbSoldItems.TextChanged += new System.EventHandler(this.cbSoldItems_TextChanged);
+            // 
+            // btnLoadSoldItems
+            // 
+            this.btnLoadSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadSoldItems.FlatAppearance.BorderSize = 0;
+            this.btnLoadSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadSoldItems.Image")));
+            this.btnLoadSoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadSoldItems.Location = new System.Drawing.Point(515, 10);
+            this.btnLoadSoldItems.Name = "btnLoadSoldItems";
+            this.btnLoadSoldItems.Size = new System.Drawing.Size(114, 37);
+            this.btnLoadSoldItems.TabIndex = 20;
+            this.btnLoadSoldItems.Text = "Carregar";
+            this.btnLoadSoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadSoldItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLoadSoldItems.UseVisualStyleBackColor = true;
+            this.btnLoadSoldItems.Click += new System.EventHandler(this.btnLoadSoldItems_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.lblTotal);
+            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel3.Location = new System.Drawing.Point(697, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(148, 51);
+            this.panel3.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lblLucro);
+            this.panel4.Location = new System.Drawing.Point(851, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(148, 51);
+            this.panel4.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(-147, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 18);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Total Vendido:";
+            // 
             // DailySale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -386,6 +471,10 @@ namespace POSales
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSold)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,5 +509,10 @@ namespace POSales
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Cancel;
+        private System.Windows.Forms.ComboBox cbSoldItems;
+        private System.Windows.Forms.Button btnLoadSoldItems;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
     }
 }

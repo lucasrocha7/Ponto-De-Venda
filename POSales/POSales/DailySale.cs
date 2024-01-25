@@ -55,23 +55,42 @@ namespace POSales
         }
         public void LoadSold()
         {
-            int i = 0;
-            int Qty = 0;
-            double total = 0;
-            double LucroVenda = 0;           
-            double lucro = 0;
-            double lucrototal = 0;
+            int i = 0;           
+            double total = 0;                    
+            double lucro = 0;           
             double buyprice = 0;
             
             dgvSold.Rows.Clear();
             cn.Open();
-            if(cboCashier.Text=="All Cashier")
+            
+           
+            if (cbSoldItems.Text == "Dinheiro")
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value+ "' and '" + dtTo.Value + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Dinheiro' ", cn);
+               
             }
+            if (cbSoldItems.Text == "Cartão")
+            {
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Cartão' ", cn);
+                
+            }
+
+            if (cbSoldItems.Text == "Pix")
+            {
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Pix' ", cn);
+
+            }
+
+            if (cboCashier.Text == "All Cashier" && cbSoldItems.Text == "Tudo" || cboCashier.Text == "All Cashier" && cbSoldItems.Text == "Filtrar")
+            {
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' ", cn);
+                
+            }
+
             else
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "'", cn);
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento = '"+ cbSoldItems.Text + "' ", cn);
+                
             }
             dr = cm.ExecuteReader();
             while(dr.Read())
@@ -149,6 +168,10 @@ namespace POSales
         {
             LoadSold();
         }
+        private void cbSoldItems_TextChanged(object sender, EventArgs e)
+        {
+            LoadSold();
+        }
 
         private void DailySale_KeyDown(object sender, KeyEventArgs e)
         {
@@ -215,5 +238,12 @@ namespace POSales
                 cancel.ShowDialog();
             }
         }
+
+        private void btnLoadSoldItems_Click(object sender, EventArgs e)
+        {
+            LoadSold();
+        }
+
+        
     }
 }

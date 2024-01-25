@@ -323,3 +323,5 @@ C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\D
 C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\DevExpress.XtraEditors.v23.1.xml
 C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\DevExpress.Pdf.v23.1.Core.xml
 C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\DevExpress.Pdf.v23.1.Drawing.xml
+C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\DevExpress.XtraBars.v23.1.dll
+C:\Users\Lucas\Documents\MeusProjetos\Ponto-De-Venda\POSales\POSales\bin\Debug\DevExpress.XtraBars.v23.1.xml

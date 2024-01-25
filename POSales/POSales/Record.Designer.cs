@@ -85,7 +85,6 @@ namespace POSales
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblLucro = new System.Windows.Forms.Label();
             this.cbSoldItems = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnLoadSoldItems = new System.Windows.Forms.Button();
@@ -525,7 +524,6 @@ namespace POSales
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lblLucro);
             this.panel3.Controls.Add(this.cbSoldItems);
             this.panel3.Controls.Add(this.lblTotal);
             this.panel3.Controls.Add(this.btnLoadSoldItems);
@@ -539,18 +537,6 @@ namespace POSales
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(991, 69);
             this.panel3.TabIndex = 1;
-            // 
-            // lblLucro
-            // 
-            this.lblLucro.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblLucro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLucro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblLucro.Location = new System.Drawing.Point(848, 21);
-            this.lblLucro.Name = "lblLucro";
-            this.lblLucro.Size = new System.Drawing.Size(138, 31);
-            this.lblLucro.TabIndex = 19;
-            this.lblLucro.Text = "0.00";
-            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbSoldItems
             // 
@@ -572,7 +558,7 @@ namespace POSales
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTotal.Location = new System.Drawing.Point(704, 21);
+            this.lblTotal.Location = new System.Drawing.Point(848, 21);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(138, 31);
             this.lblTotal.TabIndex = 17;
@@ -1447,6 +1433,5 @@ namespace POSales
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
-        private System.Windows.Forms.Label lblLucro;
     }
 }

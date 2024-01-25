@@ -54,7 +54,7 @@ namespace POSales
         public void LoadSoldItems()
 
         {
-            double lucrototal = 0;
+            double lucro = 0;
             try
             {
                 
@@ -105,10 +105,10 @@ namespace POSales
 
                 cn.Open();
 
-                if (cbSoldItems.Text == "Tudo")
+                if (cbSoldItems.Text == "Tudo" || cbSoldItems.Text == "Filtrar")
                 {
                     cm = new SqlCommand("SELECT ISNULL(SUM(total),0) FROM tbCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFromSoldItems.Value.ToString() + "' AND '" + dtToSoldItems.Value.ToString() + "'", cn);                   
-                    lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                    lblTotal.Text = double.Parse(cm.ExecuteScalar().ToString()).ToString("R$ #,##0.00");
                     
 
                 }
@@ -126,6 +126,7 @@ namespace POSales
                 MessageBox.Show(ex.Message);
             }
 
+           
             foreach (DataGridViewRow row in dgvSoldItems.Rows)
             {
                 int PQtd = Convert.ToInt32(row.Cells[5].Value);
@@ -145,14 +146,7 @@ namespace POSales
                     row.DefaultCellStyle.BackColor = Color.Red;
                     row.DefaultCellStyle.ForeColor = Color.Red;
                 }
-
-              /*  foreach (DataGridViewRow col in dgvSoldItems.Rows)
-                {
-                    lucrototal = lucrototal + Convert.ToDouble(col.Cells[4].Value);
-
-                    lblLucro.Text = lucrototal.ToString("#,##0.00");
-                }*/
-
+               
 
             }
 
