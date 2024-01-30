@@ -121,7 +121,7 @@ namespace POSales
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(984, 504);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
@@ -534,9 +534,9 @@ namespace POSales
             this.btnLoad.FlatAppearance.BorderSize = 0;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(485, 17);
+            this.btnLoad.Location = new System.Drawing.Point(363, 23);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(135, 29);
+            this.btnLoad.Size = new System.Drawing.Size(116, 26);
             this.btnLoad.TabIndex = 13;
             this.btnLoad.Text = "Carregar Dados";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -545,17 +545,17 @@ namespace POSales
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(295, 25);
+            this.label9.Location = new System.Drawing.Point(181, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 20);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Para";
+            this.label9.Text = "Até :";
             // 
             // dtTo
             // 
             this.dtTo.CustomFormat = "dd/MM/yyyy";
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.Location = new System.Drawing.Point(342, 19);
+            this.dtTo.Location = new System.Drawing.Point(228, 23);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(116, 26);
             this.dtTo.TabIndex = 1;
@@ -564,7 +564,7 @@ namespace POSales
             // 
             this.dtFrom.CustomFormat = "dd/MM/yyyy";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.Location = new System.Drawing.Point(164, 20);
+            this.dtFrom.Location = new System.Drawing.Point(50, 23);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(116, 26);
             this.dtFrom.TabIndex = 1;
@@ -572,11 +572,11 @@ namespace POSales
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 25);
+            this.label8.Location = new System.Drawing.Point(8, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 20);
+            this.label8.Size = new System.Drawing.Size(38, 20);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Filtrar Por Data: De";
+            this.label8.Text = "De :";
             // 
             // StockIn
             // 

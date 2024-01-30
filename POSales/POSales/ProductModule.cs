@@ -25,6 +25,9 @@ namespace POSales
             product = pd;
             LoadBrand();
             LoadCategory();
+            txtPercent.Enabled = false;
+            UDReOrder.Enabled = false;
+            txtPrice.Enabled = false;
         }
 
         public void LoadCategory()
@@ -54,6 +57,9 @@ namespace POSales
             txtBarcode.Clear();
             txtPdesc.Clear();
             txtPrice.Clear();
+            txtbuyprice.Clear();
+            txtPrice.Clear();
+            txtPercent.Clear();
             cboBrand.SelectedIndex = 0;
             cboCategory.SelectedIndex = 0;
             UDReOrder.Value = 1;
@@ -147,5 +153,118 @@ namespace POSales
         {
 
         }
+
+        
+        private void txtPercent_TextChanged(object sender, EventArgs e)
+        {
+            if(txtPercent.Text != "")
+            {
+                double percent = double.Parse(txtbuyprice.Text) * double.Parse(txtPercent.Text)* 0.01;
+
+                double custo = double.Parse(txtbuyprice.Text);
+
+                double Pprice = custo + percent;
+
+                txtPrice.Text = Pprice.ToString();
+            }
+        }
+
+        private void txtbuyprice_TextChanged(object sender, EventArgs e)
+        {
+            if( txtbuyprice.Text != "")
+            {
+                txtPercent.Enabled = true;
+                UDReOrder.Enabled = true;
+                txtPrice.Enabled = true;
+            }
+            else
+            {
+                txtPercent.Enabled = false;
+                UDReOrder.Enabled = false;
+                txtPrice.Enabled = false;
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UDReOrder_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPdesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBarcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+

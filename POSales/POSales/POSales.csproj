@@ -167,6 +167,18 @@
     <Compile Include="Discount.Designer.cs">
       <DependentUpon>Discount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses.Designer.cs">
+      <DependentUpon>Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpensesModule.Designer.cs">
+      <DependentUpon>ExpensesModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +332,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Discount.resx">
       <DependentUpon>Discount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses.resx">
+      <DependentUpon>Expenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpensesModule.resx">
+      <DependentUpon>ExpensesModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

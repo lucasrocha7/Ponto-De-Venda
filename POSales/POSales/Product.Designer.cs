@@ -212,9 +212,9 @@ namespace POSales
             // Column9
             // 
             this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column9.HeaderText = "Preço (Compra)";
+            this.Column9.HeaderText = "Preço (Custo)";
             this.Column9.Name = "Column9";
-            this.Column9.Width = 150;
+            this.Column9.Width = 132;
             // 
             // Column8
             // 

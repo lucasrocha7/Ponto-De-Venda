@@ -368,5 +368,25 @@ namespace POSales
         {
 
         }
+
+        private void dtFromSoldItems_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtToSoldItems_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

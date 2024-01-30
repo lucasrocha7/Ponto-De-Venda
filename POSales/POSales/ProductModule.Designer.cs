@@ -52,6 +52,8 @@ namespace POSales
             this.UDReOrder = new System.Windows.Forms.NumericUpDown();
             this.txtbuyprice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPercent = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UDReOrder)).BeginInit();
@@ -64,7 +66,7 @@ namespace POSales
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(435, 320);
+            this.btnSave.Location = new System.Drawing.Point(435, 349);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 35);
             this.btnSave.TabIndex = 9;
@@ -86,13 +88,13 @@ namespace POSales
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 18);
+            this.label1.Size = new System.Drawing.Size(159, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Módulo de Produto";
+            this.label1.Text = "Cadastro de Produto";
             // 
             // btnCancel
             // 
@@ -101,7 +103,7 @@ namespace POSales
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(635, 320);
+            this.btnCancel.Location = new System.Drawing.Point(635, 349);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 35);
             this.btnCancel.TabIndex = 12;
@@ -116,7 +118,7 @@ namespace POSales
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(535, 320);
+            this.btnUpdate.Location = new System.Drawing.Point(535, 349);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 35);
             this.btnUpdate.TabIndex = 11;
@@ -132,6 +134,7 @@ namespace POSales
             this.label2.Size = new System.Drawing.Size(159, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Código do produto :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtPcode
             // 
@@ -139,6 +142,7 @@ namespace POSales
             this.txtPcode.Name = "txtPcode";
             this.txtPcode.Size = new System.Drawing.Size(160, 26);
             this.txtPcode.TabIndex = 8;
+            this.txtPcode.TextChanged += new System.EventHandler(this.txtPcode_TextChanged);
             // 
             // panel1
             // 
@@ -150,6 +154,7 @@ namespace POSales
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(764, 50);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label3
             // 
@@ -159,6 +164,7 @@ namespace POSales
             this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Código de barras :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -168,6 +174,7 @@ namespace POSales
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Descrição :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -177,6 +184,7 @@ namespace POSales
             this.label5.Size = new System.Drawing.Size(67, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Marca :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -186,24 +194,27 @@ namespace POSales
             this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Categoria :";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 269);
+            this.label7.Location = new System.Drawing.Point(32, 316);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 20);
             this.label7.TabIndex = 10;
             this.label7.Text = "Preço (Venda) :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(457, 269);
+            this.label8.Location = new System.Drawing.Point(457, 313);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(132, 20);
             this.label8.TabIndex = 10;
             this.label8.Text = "Estoque Mínimo :";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtBarcode
             // 
@@ -211,6 +222,7 @@ namespace POSales
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(166, 26);
             this.txtBarcode.TabIndex = 8;
+            this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             // 
             // txtPdesc
             // 
@@ -218,6 +230,7 @@ namespace POSales
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(531, 26);
             this.txtPdesc.TabIndex = 8;
+            this.txtPdesc.TextChanged += new System.EventHandler(this.txtPdesc_TextChanged);
             // 
             // cboBrand
             // 
@@ -226,6 +239,7 @@ namespace POSales
             this.cboBrand.Name = "cboBrand";
             this.cboBrand.Size = new System.Drawing.Size(531, 28);
             this.cboBrand.TabIndex = 14;
+            this.cboBrand.SelectedIndexChanged += new System.EventHandler(this.cboBrand_SelectedIndexChanged);
             // 
             // cboCategory
             // 
@@ -234,17 +248,19 @@ namespace POSales
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(531, 28);
             this.cboCategory.TabIndex = 14;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(173, 266);
+            this.txtPrice.Location = new System.Drawing.Point(163, 313);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(184, 26);
+            this.txtPrice.Size = new System.Drawing.Size(150, 26);
             this.txtPrice.TabIndex = 15;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // UDReOrder
             // 
-            this.UDReOrder.Location = new System.Drawing.Point(595, 266);
+            this.UDReOrder.Location = new System.Drawing.Point(595, 310);
             this.UDReOrder.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -264,29 +280,52 @@ namespace POSales
             0,
             0,
             0});
+            this.UDReOrder.ValueChanged += new System.EventHandler(this.UDReOrder_ValueChanged);
             // 
             // txtbuyprice
             // 
-            this.txtbuyprice.Location = new System.Drawing.Point(173, 310);
+            this.txtbuyprice.Location = new System.Drawing.Point(163, 270);
             this.txtbuyprice.Name = "txtbuyprice";
-            this.txtbuyprice.Size = new System.Drawing.Size(184, 26);
+            this.txtbuyprice.Size = new System.Drawing.Size(150, 26);
             this.txtbuyprice.TabIndex = 17;
+            this.txtbuyprice.TextChanged += new System.EventHandler(this.txtbuyprice_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 313);
+            this.label9.Location = new System.Drawing.Point(32, 273);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 20);
+            this.label9.Size = new System.Drawing.Size(113, 20);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Preço (Compra):";
+            this.label9.Text = "Preço (Custo):";
             this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(457, 273);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 20);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "% de Lucro :";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // txtPercent
+            // 
+            this.txtPercent.Location = new System.Drawing.Point(595, 270);
+            this.txtPercent.Name = "txtPercent";
+            this.txtPercent.Size = new System.Drawing.Size(99, 26);
+            this.txtPercent.TabIndex = 20;
+            this.txtPercent.Tag = "";
+            this.txtPercent.TextChanged += new System.EventHandler(this.txtPercent_TextChanged);
             // 
             // ProductModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 367);
+            this.ClientSize = new System.Drawing.Size(764, 396);
+            this.Controls.Add(this.txtPercent);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtbuyprice);
             this.Controls.Add(this.UDReOrder);
@@ -349,5 +388,7 @@ namespace POSales
         public System.Windows.Forms.NumericUpDown UDReOrder;
         public System.Windows.Forms.TextBox txtbuyprice;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox txtPercent;
     }
 }

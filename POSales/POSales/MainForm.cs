@@ -196,5 +196,12 @@ namespace POSales
             dr.Close();
             cn.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            openChildForm(new Expenses());
+            hideSubmenu();
+        }
     }
 }

@@ -59,6 +59,7 @@ namespace POSales
             this.panelTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelSlide.SuspendLayout();
             this.panelSubSetting.SuspendLayout();
             this.panelSubRecord.SuspendLayout();
@@ -108,6 +109,7 @@ namespace POSales
             // panelSubSetting
             // 
             this.panelSubSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
+            this.panelSubSetting.Controls.Add(this.button1);
             this.panelSubSetting.Controls.Add(this.btnStore);
             this.panelSubSetting.Controls.Add(this.btnUser);
             this.panelSubSetting.Dock = System.Windows.Forms.DockStyle.Top;
@@ -122,10 +124,10 @@ namespace POSales
             this.btnStore.FlatAppearance.BorderSize = 0;
             this.btnStore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStore.ForeColor = System.Drawing.Color.White;
-            this.btnStore.Location = new System.Drawing.Point(0, 45);
+            this.btnStore.Location = new System.Drawing.Point(0, 28);
             this.btnStore.Name = "btnStore";
             this.btnStore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnStore.Size = new System.Drawing.Size(183, 45);
+            this.btnStore.Size = new System.Drawing.Size(183, 28);
             this.btnStore.TabIndex = 5;
             this.btnStore.Text = "Loja";
             this.btnStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,7 +143,7 @@ namespace POSales
             this.btnUser.Location = new System.Drawing.Point(0, 0);
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(183, 45);
+            this.btnUser.Size = new System.Drawing.Size(183, 28);
             this.btnUser.TabIndex = 4;
             this.btnUser.Text = "Usuário";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,7 +161,7 @@ namespace POSales
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(183, 45);
             this.btnSetting.TabIndex = 7;
-            this.btnSetting.Text = "Contexto";
+            this.btnSetting.Text = "Configuraçoes";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
@@ -387,7 +389,7 @@ namespace POSales
             this.btnDashboard.Location = new System.Drawing.Point(0, 170);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(183, 229);
+            this.btnDashboard.Size = new System.Drawing.Size(183, 413);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Painel";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -458,7 +460,7 @@ namespace POSales
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(316, 4);
             this.lblTitle.Name = "lblTitle";
@@ -477,6 +479,22 @@ namespace POSales
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(984, 621);
             this.panelMain.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 56);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(183, 28);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Despesas";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -538,6 +556,7 @@ namespace POSales
         public System.Windows.Forms.Label lblUsername;
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button button1;
     }
 }
 

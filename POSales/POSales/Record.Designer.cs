@@ -604,6 +604,7 @@ namespace POSales
             this.label4.Size = new System.Drawing.Size(39, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Até:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dtToSoldItems
             // 
@@ -612,6 +613,7 @@ namespace POSales
             this.dtToSoldItems.Name = "dtToSoldItems";
             this.dtToSoldItems.Size = new System.Drawing.Size(104, 26);
             this.dtToSoldItems.TabIndex = 1;
+            this.dtToSoldItems.ValueChanged += new System.EventHandler(this.dtToSoldItems_ValueChanged);
             // 
             // dtFromSoldItems
             // 
@@ -620,6 +622,7 @@ namespace POSales
             this.dtFromSoldItems.Name = "dtFromSoldItems";
             this.dtFromSoldItems.Size = new System.Drawing.Size(104, 26);
             this.dtFromSoldItems.TabIndex = 1;
+            this.dtFromSoldItems.ValueChanged += new System.EventHandler(this.dtFromSoldItems_ValueChanged);
             // 
             // label5
             // 
@@ -629,6 +632,7 @@ namespace POSales
             this.label5.Size = new System.Drawing.Size(34, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "De:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tabPage3
             // 
