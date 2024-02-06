@@ -17,7 +17,7 @@ namespace POSales
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=DESKTOP-LUCAS\SQLSERVER2019;Initial Catalog=POSales;Integrated Security=false; Trusted_Connection=True; Connect Timeout=30";
+            con = @"Data Source=DESKTOP-LUCAS\SQLSERVER2019;Initial Catalog=POSales;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return con;
         }
 

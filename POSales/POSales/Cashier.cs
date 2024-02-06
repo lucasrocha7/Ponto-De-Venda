@@ -187,7 +187,7 @@ namespace POSales
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimer.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblTimer.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         public void GetTranNo()

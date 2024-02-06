@@ -18,11 +18,7 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-        public string solduser;
-        double Preco = 0;
-        int PQtd = 0;
-        double PrecoCompra = 0;
-        double TotalVenda = 0;
+        public string solduser;          
         double LucroVenda = 0;
 
         MainForm main;
@@ -104,16 +100,13 @@ namespace POSales
             dr.Close();
             cn.Close();
                    
-            
-           /* for (i = 0; i <dgvSold.Rows.Count; i++)
-            {
-                Lucro = buyprice + Convert.ToDouble(dgvSold.Rows.Count[i].Cells.[9].value);
-            }*/
-
+                  
 
             
             lblTotal.Text = total.ToString("R$ #,##0.00");
             lblLucro.Text = lucro.ToString("R$ #,##0.00");
+
+          // Calculo de lucro no datagridview
 
           foreach (DataGridViewRow row in dgvSold.Rows)
             {             
@@ -128,13 +121,7 @@ namespace POSales
 
                     LucroVenda = (TotalVenda - PrecoCompra);
                     row.Cells[10].Value = LucroVenda.ToString("#,##0.00");
-
-                 /* lucro+= Convert.ToInt32(row.Cells[10].Value);
-
-                    lblLucro.Text = Convert.ToDouble(lucro).ToString("C"); */
-
-
-
+              
                 }
                 else
                 {

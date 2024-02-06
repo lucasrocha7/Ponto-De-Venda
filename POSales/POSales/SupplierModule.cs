@@ -48,7 +48,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Save this record? click yes to confirm.", "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Salvar este registro? clique em sim para confirmar.", "CONFIRMAR", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     cm = new SqlCommand("Insert into tbSupplier (supplier, address, contactperson, phone, email, fax) values (@supplier, @address, @contactperson, @phone, @email, @fax) ", cn);
@@ -60,7 +60,7 @@ namespace POSales
                     cm.Parameters.AddWithValue("@fax", txtFaxNo.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Record has been successfully saved!", "Save Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O registro foi salvo com sucesso!", "Salvar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     supplier.LoadSupplier();
                 }

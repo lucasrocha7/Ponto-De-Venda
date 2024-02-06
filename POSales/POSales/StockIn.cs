@@ -108,15 +108,17 @@ namespace POSales
                         {
                             //update product quantity
                             cn.Open();
-                            cm = new SqlCommand("UPDATE tbProduct SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode LIKE '" + dgvStockIn.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                            cm = new SqlCommand("UPDATE tbProduct SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[6].Value.ToString()) + " WHERE pcode LIKE '" + dgvStockIn.Rows[i].Cells[3].Value.ToString() + "'", cn);
                             cm.ExecuteNonQuery();
                             cn.Close();
 
                             //update stockin quantity
                             cn.Open();
-                            cm = new SqlCommand("UPDATE tbStockIn SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) + ", status='Done' WHERE id LIKE '" + dgvStockIn.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                            cm = new SqlCommand("UPDATE tbStockIn SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[6].Value.ToString()) + ", status='Done' WHERE id LIKE '" + dgvStockIn.Rows[i].Cells[1].Value.ToString() + "'", cn);                           
                             cm.ExecuteNonQuery();
                             cn.Close();
+
+                            MessageBox.Show("Entrada Salva Com Sucesso", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         Clear();
                         LoadStockIn();
@@ -162,15 +164,15 @@ namespace POSales
                 int i = 0;
                 dgvInStockHistory.Rows.Clear();
                 cn.Open();
-                cm = new SqlCommand("SELECT * FROM vwStockIn WHERE CAST(sdate as date) BETWEEN '"+dtFrom.Value.ToShortDateString()+ "' AND '" + dtTo.Value.ToShortDateString() + "' AND status LIKE 'Done'", cn);
+                cm = new SqlCommand("SELECT * FROM vwStockIn WHERE CAST(sdate as date) BETWEEN '" + dtFrom.Value.ToShortDateString()+ "' AND '" + dtTo.Value.ToShortDateString() + "' AND status LIKE 'Done'", cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
-                    dgvInStockHistory.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString(), dr["supplier"].ToString());
+                    dgvInStockHistory.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(),dr[6].ToString(),dr["supplier"].ToString());
 
                 }
-                dr.Close();
+                dr.Close(); 
                 cn.Close();
             }
             catch (Exception ex)
@@ -195,6 +197,16 @@ namespace POSales
             }
             dr.Close();
             cn.Close();
+        }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSupplier_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

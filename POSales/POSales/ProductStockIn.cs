@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Drawing.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,7 @@ namespace POSales
                 }
 
                 if (MessageBox.Show("Adicionar este item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                   
                 {
                     addStockIn(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString());
                     MessageBox.Show("Adicionado com sucesso", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
