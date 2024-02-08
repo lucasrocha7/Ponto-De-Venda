@@ -29,13 +29,13 @@ namespace POSales
         {
             int i = 0;
             dgvExpenses.Rows.Clear();
-            cm = new SqlCommand("SELECT Conta_Luz, Conta_Agua, Funcionarios, Internet, Outros, Data FROM tbExpenses WHERE Data BETWEEN '" + dtFrom.Value.ToString() +"' and '"+ dtTo.Value.ToString() + "' GROUP BY Conta_Luz, Conta_Agua, Funcionarios, Outros, Internet, Data ", cn);
+            cm = new SqlCommand("SELECT Descricao, Valor, Data FROM tbExpenses  ", cn);
             cn.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvExpenses.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
+                dgvExpenses.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
             }
             dr.Close();
             cn.Close();
@@ -54,11 +54,8 @@ namespace POSales
             {
                 ExpensesModule expenses = new ExpensesModule();
                 expenses.txtId.Text = dgvExpenses.Rows[e.RowIndex].Cells[0].Value.ToString();
-                expenses.txtLuz.Text = dgvExpenses.Rows[e.RowIndex].Cells[1].Value.ToString();
-                expenses.txtAgua.Text = dgvExpenses.Rows[e.RowIndex].Cells[2].Value.ToString();
-                expenses.txtFunc.Text = dgvExpenses.Rows[e.RowIndex].Cells[3].Value.ToString();
-                expenses.txtNet.Text = dgvExpenses.Rows[e.RowIndex].Cells[4].Value.ToString();
-                expenses.txtOutros.Text = dgvExpenses.Rows[e.RowIndex].Cells[5].Value.ToString();
+                expenses.txtDesc.Text = dgvExpenses.Rows[e.RowIndex].Cells[1].Value.ToString();
+                expenses.txtVal.Text = dgvExpenses.Rows[e.RowIndex].Cells[2].Value.ToString();               
 
                 expenses.txtId.Enabled = false;
                 expenses.btnSave.Enabled = false;

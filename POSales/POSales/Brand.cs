@@ -54,13 +54,13 @@ namespace POSales
             string colName = dgvBrand.Columns[e.ColumnIndex].Name;
             if (colName == "Delete")
             {
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Deletar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     cm = new SqlCommand("DELETE FROM tbBrand WHERE id LIKE '" + dgvBrand[1, e.RowIndex].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Brand has been successfully deleted.", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("A marca foi excluída com sucesso.", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

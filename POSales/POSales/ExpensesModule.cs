@@ -31,12 +31,9 @@ namespace POSales
             {
                 if (MessageBox.Show("Tem certeza de que deseja salvar esta despesa?", "Salvar Despesa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("INSERT INTO tbExpenses(Conta_luz, Conta_Agua, Funcionarios, internet, Outros, Data)VALUES (@Conta_luz,@Conta_Agua,@Funcionarios,@internet,@Outros, @Data)", cn);
-                    cm.Parameters.AddWithValue("@Conta_luz", decimal.Parse(txtLuz.Text));
-                    cm.Parameters.AddWithValue("@Conta_Agua", decimal.Parse(txtAgua.Text));
-                    cm.Parameters.AddWithValue("@Funcionarios", decimal.Parse(txtFunc.Text));
-                    cm.Parameters.AddWithValue("@internet", decimal.Parse(txtNet.Text));
-                    cm.Parameters.AddWithValue("@Outros", txtOutros.Text);
+                    cm = new SqlCommand("INSERT INTO tbExpenses(Descricao, Valor, Data)VALUES (@Descricao, @Valor, @Data)", cn);
+                    cm.Parameters.AddWithValue("@Descricao", txtDesc.Text);
+                    cm.Parameters.AddWithValue("@Valor", decimal.Parse(txtVal.Text));                  
                     cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString());
                     cn.Open();
                     cm.ExecuteNonQuery();
@@ -58,14 +55,11 @@ namespace POSales
 
         public void Clear()
         {
-            txtLuz.Clear();
-            txtAgua.Clear();
-            txtFunc.Clear();   
-            txtNet.Clear();
-            txtOutros.Clear();
+            txtDesc.Clear();
+            txtVal.Clear();          
             txtId.Clear();    
             
-            txtLuz.Focus();
+            txtDesc.Focus();
             btnSave.Enabled = true;
             btnUpdate.Enabled = false;
         }
@@ -79,6 +73,7 @@ namespace POSales
         private void picClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            LoadExpenses();
         }
 
         private void ExpensesModule_Load(object sender, EventArgs e)
@@ -103,13 +98,10 @@ namespace POSales
                 
                 if (MessageBox.Show("Tem certeza de que deseja atualizar esta despesa?", "Atualizar Despesa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tbExpenses SET Conta_luz=@Conta_luz,Conta_Agua=@Conta_Agua,Funcionarios=@Funcionarios,internet=@internet,Outros=@Outros,Data=@Data WHERE Id = @Id", cn);
+                    cm = new SqlCommand("UPDATE tbExpenses SET Descricao=@Descricao,Valor=@Valor,Data=@Data WHERE Id = @Id", cn);
                     cm.Parameters.AddWithValue("@Id", txtId.Text);
-                    cm.Parameters.AddWithValue("@Conta_luz", decimal.Parse(txtLuz.Text));
-                    cm.Parameters.AddWithValue("@Conta_Agua", decimal.Parse(txtAgua.Text));
-                    cm.Parameters.AddWithValue("@Funcionarios", decimal.Parse(txtFunc.Text));
-                    cm.Parameters.AddWithValue("@internet", decimal.Parse(txtNet.Text));
-                    cm.Parameters.AddWithValue("@Outros", txtOutros.Text);
+                    cm.Parameters.AddWithValue("@Descricao", decimal.Parse(txtDesc.Text));
+                    cm.Parameters.AddWithValue("@Valor", decimal.Parse(txtVal.Text));                                  
                     cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
                     cn.Open();
                     cm.ExecuteNonQuery();

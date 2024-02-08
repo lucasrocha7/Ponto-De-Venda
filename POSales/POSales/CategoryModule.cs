@@ -36,14 +36,14 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Are you sure you want to save this Category?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tem certeza de que deseja salvar esta categoria?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     cm = new SqlCommand("INSERT INTO tbCategory(category)VALUES(@category)", cn);
                     cm.Parameters.AddWithValue("@category", txtCategory.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Record has been successful saved.", "Point Of Sales");
+                    MessageBox.Show("O registro foi salvo com sucesso.", "Point Of Sales");
                     Clear();                    
                 }
                 category.LoadCategory();
@@ -63,14 +63,14 @@ namespace POSales
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //Update brand name
-            if (MessageBox.Show("Are you sure you want to update this category?", "Update Record!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza de que deseja atualizar esta categoria?", "Atualizar Registro!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cn.Open();
                 cm = new SqlCommand("UPDATE tbCategory SET category = @category WHERE id LIKE'" + lblId.Text + "'", cn);
                 cm.Parameters.AddWithValue("@category", txtCategory.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
-                MessageBox.Show("Category has been successfully updated.", "Point Of Sales");
+                MessageBox.Show("A categoria foi atualizada com sucesso.", "Point Of Sales");
                 Clear();
                 this.Dispose();// To close this form after update data
             }
