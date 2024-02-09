@@ -29,13 +29,13 @@ namespace POSales
         {
             int i = 0;
             dgvExpenses.Rows.Clear();
-            cm = new SqlCommand("SELECT Descricao, Valor, Data FROM tbExpenses  ", cn);
             cn.Open();
+            cm = new SqlCommand("SELECT Id, Descricao, Valor, Data FROM tbExpenses WHERE Data BETWEEN '" + dtFrom.Value.ToString() + "' AND '" + dtTo.Value.ToString() + "' ", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvExpenses.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                dgvExpenses.Rows.Add(i, dr["Id"].ToString(), dr["Descricao"].ToString(), dr["Valor"].ToString(), dr["Data"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -53,11 +53,9 @@ namespace POSales
             if (colName == "Edit")
             {
                 ExpensesModule expenses = new ExpensesModule();
-                expenses.txtId.Text = dgvExpenses.Rows[e.RowIndex].Cells[0].Value.ToString();
-                expenses.txtDesc.Text = dgvExpenses.Rows[e.RowIndex].Cells[1].Value.ToString();
-                expenses.txtVal.Text = dgvExpenses.Rows[e.RowIndex].Cells[2].Value.ToString();               
-
-                expenses.txtId.Enabled = false;
+                expenses.lblId.Text = dgvExpenses.Rows[e.RowIndex].Cells[1].Value.ToString();
+                expenses.txtDesc.Text = dgvExpenses.Rows[e.RowIndex].Cells[2].Value.ToString();
+                expenses.txtVal.Text = dgvExpenses.Rows[e.RowIndex].Cells[3].Value.ToString();               
                 expenses.btnSave.Enabled = false;
                 expenses.btnUpdate.Enabled = true;
                 expenses.ShowDialog();
@@ -68,7 +66,7 @@ namespace POSales
                 if (MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Apagar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("DELETE FROM tbExpenses WHERE Id LIKE '" + dgvExpenses[0, e.RowIndex].Value.ToString() + "'", cn);
+                    cm = new SqlCommand("DELETE FROM tbExpenses WHERE Id LIKE '" + dgvExpenses[1, e.RowIndex].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("O produto foi excluído com sucesso.", "Point Of Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);

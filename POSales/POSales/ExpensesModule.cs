@@ -57,7 +57,7 @@ namespace POSales
         {
             txtDesc.Clear();
             txtVal.Clear();          
-            txtId.Clear();    
+           
             
             txtDesc.Focus();
             btnSave.Enabled = true;
@@ -72,8 +72,7 @@ namespace POSales
 
         private void picClose_Click(object sender, EventArgs e)
         {
-            this.Close();
-            LoadExpenses();
+            this.Close();          
         }
 
         private void ExpensesModule_Load(object sender, EventArgs e)
@@ -98,22 +97,23 @@ namespace POSales
                 
                 if (MessageBox.Show("Tem certeza de que deseja atualizar esta despesa?", "Atualizar Despesa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cm = new SqlCommand("UPDATE tbExpenses SET Descricao=@Descricao,Valor=@Valor,Data=@Data WHERE Id = @Id", cn);
-                    cm.Parameters.AddWithValue("@Id", txtId.Text);
-                    cm.Parameters.AddWithValue("@Descricao", decimal.Parse(txtDesc.Text));
-                    cm.Parameters.AddWithValue("@Valor", decimal.Parse(txtVal.Text));                                  
-                    cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
                     cn.Open();
+                    cm = new SqlCommand("UPDATE tbExpenses SET Descricao=@Descricao,Valor=@Valor,Data=@Data WHERE Id like '"+lblId.Text+"' ", cn);                   
+                    cm.Parameters.AddWithValue("@Descricao", txtDesc.Text);
+                    cm.Parameters.AddWithValue("@Valor", decimal.Parse(txtVal.Text));                                  
+                    cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));                   
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("A Despesa foi atualizada com sucesso.");                   
+                    MessageBox.Show("A Despesa foi atualizada com sucesso.");
+                    Clear();
                     this.Dispose();
                     
                 }
             }
-            catch
+            catch (Exception ex)
             {
 
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -39,8 +39,7 @@
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtVal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
@@ -159,34 +158,22 @@
             this.txtVal.Size = new System.Drawing.Size(94, 20);
             this.txtVal.TabIndex = 39;
             // 
-            // label3
+            // lblId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(134, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 13);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Id :";
-            this.label3.Visible = false;
-            // 
-            // txtId
-            // 
-            this.txtId.AcceptsTab = true;
-            this.txtId.Location = new System.Drawing.Point(221, 76);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(94, 20);
-            this.txtId.TabIndex = 43;
-            this.txtId.Visible = false;
-            this.txtId.Click += new System.EventHandler(this.txtRefNo2_Click);
-            this.txtId.TextChanged += new System.EventHandler(this.txtRefNo2_TextChanged);
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(134, 80);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(22, 13);
+            this.lblId.TabIndex = 42;
+            this.lblId.Text = "Id :";
+            this.lblId.Visible = false;
             // 
             // ExpensesModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 271);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.txtVal);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -218,7 +205,7 @@
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtVal;
-        private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtId;
+        public System.Windows.Forms.Label lblId;
     }
 }

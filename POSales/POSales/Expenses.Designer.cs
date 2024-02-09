@@ -28,9 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Expenses));
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLoadSoldItems = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,12 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,17 +55,18 @@
             this.dgvExpenses.AllowUserToAddRows = false;
             this.dgvExpenses.BackgroundColor = System.Drawing.Color.White;
             this.dgvExpenses.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvExpenses.ColumnHeadersHeight = 30;
             this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -79,6 +81,55 @@
             this.dgvExpenses.Size = new System.Drawing.Size(782, 525);
             this.dgvExpenses.TabIndex = 5;
             this.dgvExpenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpenses_CellContentClick);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.Name = "Column4";
+            this.Column4.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column1.HeaderText = "Nº";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 49;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Descrição";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.HeaderText = "Valor";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 71;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "Data";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 68;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 5;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 5;
             // 
             // panel1
             // 
@@ -127,6 +178,7 @@
             // 
             // dtTo
             // 
+            this.dtTo.CustomFormat = "MM";
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtTo.Location = new System.Drawing.Point(363, 23);
             this.dtTo.Name = "dtTo";
@@ -135,6 +187,7 @@
             // 
             // dtFrom
             // 
+            this.dtFrom.CustomFormat = "MM";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFrom.Location = new System.Drawing.Point(231, 23);
             this.dtFrom.Name = "dtFrom";
@@ -178,49 +231,6 @@
             this.label1.Text = "Despesas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column1.HeaderText = "Nº";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 49;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Descrição";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.HeaderText = "Valor";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 71;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Data";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 68;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 5;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 5;
-            // 
             // Expenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +258,7 @@
         private System.Windows.Forms.DateTimePicker dtFrom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLoadSoldItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
