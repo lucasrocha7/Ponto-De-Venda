@@ -88,5 +88,10 @@ namespace POSales
                 this.Dispose();
             }
         }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

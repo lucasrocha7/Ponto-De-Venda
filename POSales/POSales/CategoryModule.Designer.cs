@@ -85,6 +85,7 @@ namespace POSales
             this.lblId.TabIndex = 13;
             this.lblId.Text = "id";
             this.lblId.Visible = false;
+            this.lblId.Click += new System.EventHandler(this.lblId_Click);
             // 
             // btnCancel
             // 

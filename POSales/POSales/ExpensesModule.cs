@@ -101,7 +101,7 @@ namespace POSales
                     cm = new SqlCommand("UPDATE tbExpenses SET Descricao=@Descricao,Valor=@Valor,Data=@Data WHERE Id like '"+lblId.Text+"' ", cn);                   
                     cm.Parameters.AddWithValue("@Descricao", txtDesc.Text);
                     cm.Parameters.AddWithValue("@Valor", decimal.Parse(txtVal.Text));                                  
-                    cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));                   
+                    cm.Parameters.AddWithValue("@Data", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));                   
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("A Despesa foi atualizada com sucesso.");
