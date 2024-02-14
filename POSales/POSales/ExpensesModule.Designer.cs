@@ -94,28 +94,34 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(134, 141);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(106, 141);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(50, 18);
             this.label5.TabIndex = 29;
             this.label5.Text = "Valor :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(134, 110);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(106, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(84, 18);
             this.label4.TabIndex = 28;
             this.label4.Text = "Descrição :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtDesc
             // 
             this.txtDesc.AcceptsTab = true;
-            this.txtDesc.Location = new System.Drawing.Point(221, 106);
+            this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesc.Location = new System.Drawing.Point(193, 106);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(151, 20);
+            this.txtDesc.Size = new System.Drawing.Size(151, 24);
             this.txtDesc.TabIndex = 23;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             // 
             // panel1
             // 
@@ -127,6 +133,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(449, 50);
             this.panel1.TabIndex = 21;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // picClose
             // 
@@ -153,20 +160,24 @@
             // txtVal
             // 
             this.txtVal.AcceptsTab = true;
-            this.txtVal.Location = new System.Drawing.Point(221, 137);
+            this.txtVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVal.Location = new System.Drawing.Point(193, 137);
             this.txtVal.Name = "txtVal";
-            this.txtVal.Size = new System.Drawing.Size(94, 20);
+            this.txtVal.Size = new System.Drawing.Size(151, 24);
             this.txtVal.TabIndex = 39;
+            this.txtVal.TextChanged += new System.EventHandler(this.txtVal_TextChanged);
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(134, 80);
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(106, 80);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(22, 13);
+            this.lblId.Size = new System.Drawing.Size(27, 18);
             this.lblId.TabIndex = 42;
             this.lblId.Text = "Id :";
             this.lblId.Visible = false;
+            this.lblId.Click += new System.EventHandler(this.lblId_Click);
             // 
             // ExpensesModule
             // 

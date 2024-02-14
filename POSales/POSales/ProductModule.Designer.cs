@@ -289,6 +289,8 @@ namespace POSales
             this.txtbuyprice.Size = new System.Drawing.Size(150, 26);
             this.txtbuyprice.TabIndex = 17;
             this.txtbuyprice.TextChanged += new System.EventHandler(this.txtbuyprice_TextChanged);
+            this.txtbuyprice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbuyprice_KeyDown);
+            this.txtbuyprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKeyPress);
             // 
             // label9
             // 
@@ -318,6 +320,7 @@ namespace POSales
             this.txtPercent.TabIndex = 20;
             this.txtPercent.Tag = "";
             this.txtPercent.TextChanged += new System.EventHandler(this.txtPercent_TextChanged);
+            this.txtPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPercent_KeyPress);
             // 
             // ProductModule
             // 

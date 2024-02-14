@@ -58,36 +58,21 @@ namespace POSales
             
             dgvSold.Rows.Clear();
             cn.Open();
-            
-           
-            if (cbSoldItems.Text == "Dinheiro")
-            {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Dinheiro' ", cn);
-               
-            }
-            if (cbSoldItems.Text == "Cartão")
-            {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Cartão' ", cn);
-                
-            }
 
-            if (cbSoldItems.Text == "Pix")
+            if (cbSoldItems.Text == "Filtrar" || cbSoldItems.Text == "" || cbSoldItems.Text == "Tudo")
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento like 'Pix' ", cn);
+
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total ,c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' ", cn);
 
             }
 
-            if (cboCashier.Text == "All Cashier" && cbSoldItems.Text == "Tudo" || cboCashier.Text == "All Cashier" && cbSoldItems.Text == "Filtrar")
+            else if (cbSoldItems.Text != "")
             {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' ", cn);
-                
+
+                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total ,c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and c.fpagamento = '" + cbSoldItems.Text + "' ", cn);
+
             }
 
-            else
-            {
-                cm = new SqlCommand("select c.id, c.transno, c.pcode, p.pdesc, c.price,p.buyprice, c.qty, c.disc, c.total, c.lucro, c.lucrototal, c.fpagamento from tbCart as c inner join tbProduct as p on c.pcode = p.pcode where status like 'Sold' and sdate between '" + dtFrom.Value + "' and '" + dtTo.Value + "' and cashier like '" + cboCashier.Text + "' and c.fpagamento = '"+ cbSoldItems.Text + "' ", cn);
-                
-            }
             dr = cm.ExecuteReader();
             while(dr.Read())
             {
@@ -99,10 +84,7 @@ namespace POSales
             }
             dr.Close();
             cn.Close();
-                   
-                  
-
-            
+                                            
             lblTotal.Text = total.ToString("R$ #,##0.00");
             lblLucro.Text = lucro.ToString("R$ #,##0.00");
 
