@@ -30,7 +30,7 @@ namespace POSales
             int i = 0;
             dgvExpenses.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("SELECT Id, Descricao, Valor, Data FROM tbExpenses WHERE Data BETWEEN '" + dtFrom.Value.ToString() + "' AND '" + dtTo.Value.ToString() + "' ", cn);
+            cm = new SqlCommand("SELECT Id, Descricao, Valor, Data FROM tbExpenses ", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -43,7 +43,7 @@ namespace POSales
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ExpensesModule expensesModule = new ExpensesModule();
+            ExpensesModule expensesModule = new ExpensesModule(this);
             expensesModule.ShowDialog();
         }
 
@@ -52,7 +52,7 @@ namespace POSales
             string colName = dgvExpenses.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                ExpensesModule expenses = new ExpensesModule();
+                ExpensesModule expenses = new ExpensesModule(this);
                 expenses.lblId.Text = dgvExpenses.Rows[e.RowIndex].Cells[1].Value.ToString();
                 expenses.txtDesc.Text = dgvExpenses.Rows[e.RowIndex].Cells[2].Value.ToString();
                 expenses.txtVal.Text = dgvExpenses.Rows[e.RowIndex].Cells[3].Value.ToString();               
@@ -78,7 +78,18 @@ namespace POSales
 
         private void btnLoadSoldItems_Click(object sender, EventArgs e)
         {
-            LoadExpenses();
+            int i = 0;
+            dgvExpenses.Rows.Clear();
+            cn.Open();
+            cm = new SqlCommand("SELECT Id, Descricao, Valor, Data FROM tbExpenses WHERE Data BETWEEN '" + dtFrom.Value.ToString() + "' AND '" + dtTo.Value.ToString() + "' ", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvExpenses.Rows.Add(i, dr["Id"].ToString(), dr["Descricao"].ToString(), dr["Valor"].ToString(), dr["Data"].ToString());
+            }
+            dr.Close();
+            cn.Close();
         }
     }
 }

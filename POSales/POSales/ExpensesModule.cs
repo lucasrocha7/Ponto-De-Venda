@@ -16,12 +16,13 @@ namespace POSales
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
-        public ExpensesModule()
+        Expenses expenses;
+        public ExpensesModule(Expenses exp)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
             btnUpdate.Enabled = false;
-            
+            expenses = exp;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace POSales
                     Clear();
                     
                 }
-                
+                expenses.LoadExpenses();
             }
             catch (Exception ex)
             {
@@ -109,6 +110,7 @@ namespace POSales
                     this.Dispose();
                     
                 }
+                expenses.LoadExpenses();
             }
             catch (Exception ex)
             {
